@@ -13,7 +13,7 @@ export async function GET() {
 
     // Versuche zuerst Text Search
     try {
-      const searchQuery = 'MIRA Technikwelt Backnang';
+      const searchQuery = 'MIRA-Technikwelt Backnang';
       const url = `https://maps.googleapis.com/maps/api/place/textsearch/json?query=${encodeURIComponent(searchQuery)}&key=${apiKey}&language=de`;
 
       const response = await fetch(url, {
