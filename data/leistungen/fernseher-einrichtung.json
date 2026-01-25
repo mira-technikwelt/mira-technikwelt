@@ -1,0 +1,35 @@
+{
+    "slug": "fernseher-einrichtung",
+    "title": "Fernseher Einrichtung",
+    "subtitle": "Professionelle TV-Einrichtung in Stuttgart",
+    "price": "ab 49€",
+    "duration": "45-60 Min",
+    "image": "/tv.png",
+    "description": "Wir richten Ihren Fernseher komplett ein - von der Sendersuche bis zum Anschluss aller Geräte.",
+    "features": [
+      "Sendersuche und Sortierung",
+      "Apps einrichten (Netflix, Prime Video, etc.)",
+      "Externe Geräte anschließen (Soundbar, Receiver, Konsole)",
+      "WLAN-Verbindung einrichten",
+      "Bildeinstellungen optimieren"
+    ],
+    "benefits": [
+      "Schneller Service vor Ort",
+      "Professionelle Einrichtung",
+      "Alle Geräte funktionieren"
+    ],
+    "faq": [
+      {
+        "question": "Wie lange dauert die Einrichtung?",
+        "answer": "In der Regel 45-60 Minuten, je nach Umfang."
+      },
+      {
+        "question": "Was kostet der Service?",
+        "answer": "Ab 49€ - der genaue Preis hängt vom Aufwand ab."
+      },
+      {
+        "question": "Bringen Sie alle Kabel mit?",
+        "answer": "Ja, wir haben alle benötigten Kabel dabei."
+      }
+    ]
+  }
