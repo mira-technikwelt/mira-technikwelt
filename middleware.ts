@@ -34,7 +34,7 @@ export function middleware(req: NextRequest) {
       </head>
       <body>
         <div class="card">
-          <h1>Wir sind gleich wieder da</h1>
+          <h1>Wir sind bald wieder für sie da</h1>
           <p>Die Website wird gerade aktualisiert. Bitte später nochmal vorbeischauen.</p>
         </div>
       </body>
