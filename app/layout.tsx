@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Space_Grotesk } from "next/font/google";
 import "./globals.css";
-import SmoothScroll from "@/components/ui/smooth-scroll";
 import { LocalBusinessSchema } from "@/app/schema";
 
 const spaceGrotesk = Space_Grotesk({
@@ -27,7 +26,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
       </head>
       <body className={`${spaceGrotesk.className} overflow-x-hidden bg-black`} suppressHydrationWarning>
-      <SmoothScroll />
         {children}
       </body>
     </html>
