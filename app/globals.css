@@ -7,12 +7,21 @@ html {
   overflow-x: hidden;
   background-color: #000;
   color-scheme: dark;
+  --color-scheme: dark;
+}
+
+/* Force dark mode only */
+@supports (color-scheme: dark) {
+  html {
+    color-scheme: dark only;
+  }
 }
 
 body {
   width: 100%;
   overflow-x: hidden;
   background-color: #000;
+  color: white;
 }
 
 .button {

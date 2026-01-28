@@ -272,10 +272,10 @@ export default function LeistungenPage() {
             </div>
 
             {/* Layout: Links Header, Rechts Cards */}
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
+            <div className="grid grid-cols-1 xl:grid-cols-12 gap-12">
               
-              {/* Linke Seite - Header & Logo (nur Desktop) */}
-              <div className="hidden lg:block lg:col-span-3">
+              {/* Linke Seite - Header & Logo (nur große Desktop-Screens) */}
+              <div className="hidden xl:block xl:col-span-3">
                 <div className="sticky top-32">
                   <h1 className="text-6xl font-bold text-white mb-8">
                     Unsere<br />Leistungen
@@ -298,8 +298,8 @@ export default function LeistungenPage() {
               </div>
 
               {/* Rechte Seite - Service Cards */}
-              <div className="lg:col-span-9 w-full">
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-4 sm:gap-6 mx-auto sm:max-w-2xl lg:max-w-none">
+              <div className="xl:col-span-9 w-full">
+                <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-4 sm:gap-6 mx-auto sm:max-w-2xl xl:max-w-none">
                   {filteredServices.map((service) => (
                     <ServiceCard key={service.title} service={service} />
                   ))}

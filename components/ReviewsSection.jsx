@@ -1,6 +1,6 @@
  "use client";
-import { CardBody, CardContainer, CardItem } from "@/components/ui/3d-card";
 import { useState, useRef, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 
 export default function ReviewsSection() {
   const [reviews, setReviews] = useState([]);
@@ -8,9 +8,9 @@ export default function ReviewsSection() {
   const [totalRatings, setTotalRatings] = useState(0);
   const [loading, setLoading] = useState(true);
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [startX, setStartX] = useState(0);
-  const [isDragging, setIsDragging] = useState(false);
+  const [autoplay, setAutoplay] = useState(true);
   const containerRef = useRef(null);
+  const timeoutRef = useRef(null);
 
   useEffect(() => {
     async function fetchGoogleReviews() {
@@ -79,34 +79,37 @@ export default function ReviewsSection() {
     fetchGoogleReviews();
   }, []);
 
-  const handleTouchStart = (e) => {
-    setStartX(e.touches[0].clientX);
-    setIsDragging(true);
-  };
+  // Autoplay effect
+  useEffect(() => {
+    if (!autoplay || reviews.length === 0) return;
 
-  const handleTouchMove = (e) => {
-    if (!isDragging) return;
-  };
-
-  const handleTouchEnd = (e) => {
-    if (!isDragging) return;
-    
-    const endX = e.changedTouches[0].clientX;
-    const diffX = startX - endX;
-    const threshold = 50;
-
-    if (Math.abs(diffX) > threshold) {
-      if (diffX > 0) {
+    const startAutoplay = () => {
+      timeoutRef.current = setTimeout(() => {
         setCurrentIndex((prev) => (prev + 1) % reviews.length);
-      } else {
-        setCurrentIndex((prev) => (prev - 1 + reviews.length) % reviews.length);
-      }
-    }
+      }, 6000);
+    };
 
-    setIsDragging(false);
+    startAutoplay();
+
+    return () => {
+      if (timeoutRef.current) {
+        clearTimeout(timeoutRef.current);
+      }
+    };
+  }, [currentIndex, autoplay, reviews.length]);
+
+  const handleNext = () => {
+    setAutoplay(false);
+    setCurrentIndex((prev) => (prev + 1) % reviews.length);
+  };
+
+  const handlePrevious = () => {
+    setAutoplay(false);
+    setCurrentIndex((prev) => (prev - 1 + reviews.length) % reviews.length);
   };
 
   const goToReview = (index) => {
+    setAutoplay(false);
     setCurrentIndex(index);
   };
 
@@ -150,134 +153,143 @@ export default function ReviewsSection() {
             </div>
           </div>
 
-          <div className="hidden md:grid md:grid-cols-3 gap-8">
-            {reviews.slice(0, 6).map((review, idx) => (
-              <CardContainer key={idx} className="inter-var">
-                <CardBody className="bg-gradient-to-br from-slate-800 to-slate-900 relative group/card border-slate-700 w-full h-[400px] rounded-2xl p-8 border flex flex-col">
-                  <CardItem translateZ="50" className="flex items-center gap-3 mb-4">
-                    {review.profilePhoto && (
-                      <img 
-                        src={review.profilePhoto} 
-                        alt={review.name}
-                        className="w-10 h-10 rounded-full"
-                      />
-                    )}
-                    <div className="flex-grow">
-                      <span className="text-white font-semibold block">{review.name}</span>
-                      {review.relativeTime && (
-                        <span className="text-slate-400 text-xs">{review.relativeTime}</span>
-                      )}
-                    </div>
-                  </CardItem>
-                  
-                  <CardItem translateZ="60" className="text-yellow-400 text-xl mb-4">
-                    {'⭐'.repeat(review.rating)}
-                  </CardItem>
-                  
-                  <CardItem
-                    as="p"
-                    translateZ="70"
-                    className="text-slate-300 leading-relaxed flex-grow overflow-hidden text-sm"
-                  >
-                    "{review.text}"
-                  </CardItem>
-                </CardBody>
-              </CardContainer>
-            ))}
-          </div>
-
-          <div className="md:hidden">
-            <div 
-              ref={containerRef}
-              className="relative h-96 mb-8 cursor-grab active:cursor-grabbing"
-              onTouchStart={handleTouchStart}
-              onTouchMove={handleTouchMove}
-              onTouchEnd={handleTouchEnd}
-            >
-              {reviews.map((review, idx) => {
-                const isActive = idx === currentIndex;
-                const isNext = idx === (currentIndex + 1) % reviews.length;
-                const isPrev = idx === (currentIndex - 1 + reviews.length) % reviews.length;
-
-                let zIndex = 0;
-                let transform = "scale(0.85) translateY(100px)";
-                let opacity = 0;
-
-                if (isActive) {
-                  zIndex = 30;
-                  transform = "scale(1) translateY(0)";
-                  opacity = 1;
-                } else if (isNext) {
-                  zIndex = 20;
-                  transform = "scale(0.92) translateY(40px)";
-                  opacity = 0.6;
-                } else if (isPrev) {
-                  zIndex = 10;
-                  transform = "scale(0.92) translateY(40px)";
-                  opacity = 0.6;
-                }
-
-                return (
-                  <div
-                    key={idx}
-                    className="absolute inset-0 bg-gradient-to-br from-slate-800 to-slate-900 rounded-2xl p-6 border border-slate-700 flex flex-col justify-between transition-all duration-500 ease-out"
-                    style={{
-                      zIndex,
-                      transform,
-                      opacity,
-                      pointerEvents: isActive ? 'auto' : 'none'
-                    }}
-                  >
-                    <div className="flex items-center gap-3 mb-3">
-                      {review.profilePhoto && (
-                        <img 
-                          src={review.profilePhoto} 
-                          alt={review.name}
-                          className="w-8 h-8 rounded-full"
+          {/* Animated Testimonials Carousel */}
+          <div className="relative max-w-5xl mx-auto">
+            <div className="relative h-[500px] md:h-[400px] flex items-center justify-center">
+              <AnimatePresence mode="wait">
+                <motion.div
+                  key={currentIndex}
+                  initial={{ opacity: 0, x: 100 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  exit={{ opacity: 0, x: -100 }}
+                  transition={{ duration: 0.5, ease: "easeInOut" }}
+                  className="absolute inset-0 flex flex-col md:flex-row gap-8 items-center justify-center px-4"
+                >
+                  {/* Image */}
+                  <div className="relative w-48 h-48 md:w-80 md:h-80 flex-shrink-0">
+                    <div className="absolute inset-0 bg-gradient-to-br from-blue-500 to-purple-600 rounded-3xl opacity-20 blur-2xl"></div>
+                    {reviews[currentIndex]?.profilePhoto ? (
+                      <>
+                        <img
+                          src={reviews[currentIndex].profilePhoto}
+                          alt={reviews[currentIndex].name}
+                          className="relative w-full h-full rounded-3xl object-cover border-4 border-slate-700 shadow-2xl"
+                          onError={(e) => {
+                            e.target.style.display = 'none';
+                            e.target.nextElementSibling.style.display = 'flex';
+                          }}
                         />
-                      )}
-                      <div className="flex-grow">
-                        <span className="text-white font-semibold text-sm block">{review.name}</span>
-                        {review.relativeTime && (
-                          <span className="text-slate-400 text-xs">{review.relativeTime}</span>
+                        <div className="hidden relative w-full h-full rounded-3xl bg-gradient-to-br from-blue-500 to-purple-600 items-center justify-center text-white text-6xl font-bold border-4 border-slate-700 shadow-2xl">
+                          {reviews[currentIndex]?.name.charAt(0)}
+                        </div>
+                      </>
+                    ) : (
+                      <div className="relative w-full h-full rounded-3xl bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center text-white text-6xl font-bold border-4 border-slate-700 shadow-2xl">
+                        {reviews[currentIndex]?.name.charAt(0)}
+                      </div>
+                    )}
+                  </div>
+
+                  {/* Content */}
+                  <div className="flex-1 max-w-2xl overflow-hidden">
+                    <motion.div
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ delay: 0.2, duration: 0.5 }}
+                      className="overflow-hidden"
+                    >
+                      {/* Quote */}
+                      <div className="mb-6 overflow-hidden">
+                        <div className="text-yellow-400 text-2xl mb-4">
+                          {'⭐'.repeat(reviews[currentIndex]?.rating || 5)}
+                        </div>
+                        <p className="text-slate-200 text-base md:text-lg leading-relaxed italic overflow-hidden line-clamp-6">
+                          "{reviews[currentIndex]?.text}"
+                        </p>
+                      </div>
+
+                      {/* Author Info */}
+                      <div className="mt-6">
+                        <p className="text-white font-bold text-xl">
+                          {reviews[currentIndex]?.name}
+                        </p>
+                        {reviews[currentIndex]?.relativeTime && (
+                          <p className="text-slate-400 text-sm mt-1">
+                            {reviews[currentIndex].relativeTime}
+                          </p>
                         )}
                       </div>
-                    </div>
-                    
-                    <div className="text-yellow-400 text-lg mb-3">
-                      {'⭐'.repeat(review.rating)}
-                    </div>
-                    
-                    <p className="text-slate-300 leading-relaxed flex-grow text-sm">
-                      "{review.text}"
-                    </p>
+                    </motion.div>
                   </div>
-                );
-              })}
+                </motion.div>
+              </AnimatePresence>
             </div>
 
-            <div className="flex justify-center gap-2 mb-6">
+            {/* Dots Navigation */}
+            <div className="flex justify-center gap-2 mt-8">
               {reviews.map((_, idx) => (
                 <button
                   key={idx}
                   onClick={() => goToReview(idx)}
                   className={`h-2 rounded-full transition-all duration-300 ${
                     idx === currentIndex
-                      ? 'bg-blue-500 w-6'
-                      : 'bg-slate-500 w-2 hover:bg-slate-400'
+                      ? 'bg-blue-500 w-8'
+                      : 'bg-slate-600 w-2 hover:bg-slate-500'
                   }`}
                   aria-label={`Zu Review ${idx + 1}`}
                 />
               ))}
             </div>
 
-            <p className="text-center text-slate-400 text-xs sm:text-sm">
-              Wische zum Navigieren
-            </p>
+            {/* Thumbnails Preview - Always show 3: previous, current, next */}
+            <div className="hidden md:flex justify-center gap-4 mt-8 px-12">
+              {(() => {
+                const prevIndex = (currentIndex - 1 + reviews.length) % reviews.length;
+                const nextIndex = (currentIndex + 1) % reviews.length;
+                const displayIndices = [prevIndex, currentIndex, nextIndex];
+                
+                return displayIndices.map((idx) => {
+                  const review = reviews[idx];
+                  return (
+                    <button
+                      key={idx}
+                      onClick={() => goToReview(idx)}
+                      className={`relative transition-all duration-300 ${
+                        idx === currentIndex 
+                          ? 'w-16 h-16 opacity-100 scale-110' 
+                          : 'w-12 h-12 opacity-40 hover:opacity-70'
+                      }`}
+                    >
+                      {review.profilePhoto ? (
+                        <img
+                          src={review.profilePhoto}
+                          alt={review.name}
+                          className={`w-full h-full rounded-full object-cover border-2 ${
+                            idx === currentIndex ? 'border-blue-500' : 'border-slate-600'
+                          }`}
+                          onError={(e) => {
+                            e.target.style.display = 'none';
+                            e.target.nextElementSibling.style.display = 'flex';
+                          }}
+                        />
+                      ) : null}
+                      <div 
+                        className={`w-full h-full rounded-full bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center text-white text-xl font-bold border-2 ${
+                          idx === currentIndex ? 'border-blue-500' : 'border-slate-600'
+                        } ${review.profilePhoto ? 'hidden' : 'flex'}`}
+                        style={{ display: review.profilePhoto ? 'none' : 'flex' }}
+                      >
+                        {review.name.charAt(0)}
+                      </div>
+                    </button>
+                  );
+                });
+              })()}
+            </div>
           </div>
 
           {/* Button zu Google Reviews */}
-          <div className="flex justify-center mt-8 sm:mt-12">
+          <div className="flex justify-center mt-12 sm:mt-16">
             <a 
               href="https://share.google/bu5WKf3g3hMm8nRJw"
               target="_blank"
