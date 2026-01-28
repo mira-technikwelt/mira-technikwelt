@@ -3,70 +3,73 @@ import { NextResponse } from 'next/server';
 export async function GET() {
   try {
     const apiKey = process.env.GOOGLE_PLACES_API_KEY;
-    const fallbackPlaceId = process.env.GOOGLE_PLACE_ID;
-
+    
     if (!apiKey) {
-      throw new Error('GOOGLE_PLACES_API_KEY not set');
+      console.error('GOOGLE_PLACES_API_KEY not configured');
+      return NextResponse.json(
+        { 
+          error: 'API Key nicht konfiguriert',
+          reviews: []
+        },
+        { status: 200 }
+      );
     }
 
-    let placeId = fallbackPlaceId;
-
-    // Versuche zuerst Text Search
-    try {
-      const searchQuery = 'MIRA-Technikwelt Backnang';
-      const url = `https://maps.googleapis.com/maps/api/place/textsearch/json?query=${encodeURIComponent(searchQuery)}&key=${apiKey}&language=de`;
-
-      const response = await fetch(url, {
-        method: 'GET',
-        next: { revalidate: 3600 }
-      });
-
-      if (!response.ok) {
-        throw new Error(`HTTP Error: ${response.status}`);
-      }
-
-      const searchData = await response.json();
-      console.log('=== TEXT SEARCH RESPONSE ===');
-      console.log(JSON.stringify(searchData, null, 2));
-      
-      if (searchData.results && searchData.results.length > 0) {
-        placeId = searchData.results[0].place_id;
-        console.log('Found Place ID:', placeId);
-      } else {
-        console.log('Text Search found no results, using fallback Place ID');
-      }
-    } catch (error) {
-      console.log('Text Search failed, using fallback Place ID:', error);
-    }
-
-    if (!placeId) {
-      throw new Error('No Place ID available');
-    }
-
-    // Hole Details mit dem Place ID
-
-    // Jetzt hole die Details mit Reviews
+    // Place ID für MIRA Technikwelt - kann als Environment Variable überschrieben werden
+    const placeId = process.env.GOOGLE_PLACE_ID || 'ChIJ81MhHJXKmUcRH3zAnAAJX6E';
+    
     const detailsUrl = `https://maps.googleapis.com/maps/api/place/details/json?place_id=${placeId}&fields=name,rating,user_ratings_total,reviews&language=de&key=${apiKey}`;
 
     const detailsResponse = await fetch(detailsUrl, {
       method: 'GET',
-      next: { revalidate: 3600 }
+      cache: 'no-store', // Verhindert Caching-Probleme
+      headers: {
+        'Content-Type': 'application/json',
+      }
     });
 
+    if (!detailsResponse.ok) {
+      console.error('Google API HTTP Error:', detailsResponse.status);
+      throw new Error(`HTTP Error: ${detailsResponse.status}`);
+    }
+
     const data = await detailsResponse.json();
-    console.log('=== GOOGLE API FULL RESPONSE ===');
-    console.log(JSON.stringify(data, null, 2));
-    console.log('=== END RESPONSE ===');
+    
+    if (data.status === 'REQUEST_DENIED') {
+      console.error('Google API Request denied:', data.error_message);
+      return NextResponse.json(
+        { 
+          error: 'API Anfrage abgelehnt - bitte API Key und Einstellungen prüfen',
+          details: data.error_message,
+          reviews: []
+        },
+        { status: 200 }
+      );
+    }
 
     if (data.status !== 'OK') {
       console.error('Google API returned status:', data.status);
       console.error('Error message:', data.error_message);
-      throw new Error(`Google API Status: ${data.status} - ${data.error_message || 'No error message'}`);
+      return NextResponse.json(
+        { 
+          error: `Google API Status: ${data.status}`,
+          details: data.error_message,
+          reviews: []
+        },
+        { status: 200 }
+      );
     }
 
     // Reviews formatieren
-    const reviews = data.result.reviews?.map((review: unknown) => {
-      const r = review as { author_name?: string; rating?: number; text?: string; time?: number; profile_photo_url?: string; relative_time_description?: string };
+    const reviews = data.result?.reviews?.map((review: unknown) => {
+      const r = review as { 
+        author_name?: string; 
+        rating?: number; 
+        text?: string; 
+        time?: number; 
+        profile_photo_url?: string; 
+        relative_time_description?: string 
+      };
       return {
         name: r.author_name || 'Anonymer Nutzer',
         rating: r.rating || 5,
@@ -78,10 +81,15 @@ export async function GET() {
     }) || [];
 
     return NextResponse.json({
-      rating: data.result.rating || 5.0,
-      totalRatings: data.result.user_ratings_total || 0,
+      rating: data.result?.rating || 5.0,
+      totalRatings: data.result?.user_ratings_total || 0,
       reviews: reviews,
-      source: 'google'
+      source: 'google',
+      success: true
+    }, {
+      headers: {
+        'Cache-Control': 'public, s-maxage=3600, stale-while-revalidate=7200',
+      }
     });
 
   } catch (error) {
@@ -89,9 +97,15 @@ export async function GET() {
     return NextResponse.json(
       { 
         error: 'Fehler beim Laden der Reviews',
-        details: error instanceof Error ? error.message : 'Unbekannt'
+        details: error instanceof Error ? error.message : 'Unbekannt',
+        reviews: [],
+        success: false
       },
-      { status: 500 }
+      { status: 200 }
     );
   }
 }
+
+// Optional: Explizite Runtime-Konfiguration für Edge
+export const runtime = 'nodejs';
+export const dynamic = 'force-dynamic';
