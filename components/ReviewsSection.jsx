@@ -99,17 +99,14 @@ export default function ReviewsSection() {
   }, [currentIndex, autoplay, reviews.length]);
 
   const handleNext = () => {
-    setAutoplay(false);
     setCurrentIndex((prev) => (prev + 1) % reviews.length);
   };
 
   const handlePrevious = () => {
-    setAutoplay(false);
     setCurrentIndex((prev) => (prev - 1 + reviews.length) % reviews.length);
   };
 
   const goToReview = (index) => {
-    setAutoplay(false);
     setCurrentIndex(index);
   };
 
