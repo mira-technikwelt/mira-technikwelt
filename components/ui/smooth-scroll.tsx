@@ -10,12 +10,12 @@ export default function SmoothScroll() {
     async function setup() {
       const { default: Lenis } = await import("@studio-freight/lenis");
       lenis = new Lenis({
-        // Higher lerp = lighter smoothing (less drag). 0.12 feels snappier.
-        lerp: 0.16,
+        // Leichter Smooth Scroll - höherer lerp = weniger Widerstand
+        lerp: 0.08,
         smoothWheel: true,
-        syncTouch: true,
-        // Slightly reduce wheel delta to feel less heavy
-        wheelMultiplier: 0.8,
+        syncTouch: false,
+        // Leicht reduzierter wheelMultiplier für sanften Effekt
+        wheelMultiplier: 0.9,
       });
 
       function raf(time: number) {

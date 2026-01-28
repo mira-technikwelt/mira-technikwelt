@@ -27,7 +27,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
       </head>
       <body className={`${spaceGrotesk.className} overflow-x-hidden bg-black`} suppressHydrationWarning>
-      {/* <SmoothScroll /> */}
+      <SmoothScroll />
         {children}
       </body>
     </html>
