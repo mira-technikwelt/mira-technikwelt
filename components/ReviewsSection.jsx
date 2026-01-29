@@ -26,25 +26,25 @@ export default function ReviewsSection() {
           // Fallback Reviews wenn API keine liefert
           setReviews([
             {
-              name: "Stefanie Übele",
+              name: "CoachD",
               rating: 5,
-              text: "Ich bin absolut begeistert von MIRA Technikwelt! Der Service ist professionell, zuverlässig und vor allem persönlich auf meine Bedürfnisse abgestimmt. Mein neuer PC wurde perfekt eingerichtet und läuft einwandfrei.",
-              relativeTime: "vor 2 Monaten",
-              profilePhoto: "https://ui-avatars.com/api/?name=Stefanie+Uebele&background=3b82f6&color=fff&size=128"
+              text: "Sehr gute und vor allem unkomplizierte Beratung sowie Einrichtung. Mickael war sehr kompetent und freundlich!",
+              relativeTime: "vor einer Woche",
+              profilePhoto: "https://ui-avatars.com/api/?name=CoachD&background=3b82f6&color=fff&size=128"
             },
             {
-              name: "Nadia Herrmann",
+              name: "Maranta",
               rating: 5,
-              text: "Bin sehr zufrieden mit dem Service. Auch als es beim Telefonanschluss Schwierigkeiten gab, wurde das schnell und kompetent behoben. Der Techniker war freundlich und zuvorkommend.",
-              relativeTime: "vor 3 Monaten",
-              profilePhoto: "https://ui-avatars.com/api/?name=Nadia+Herrmann&background=8b5cf6&color=fff&size=128"
+              text: "Die Beratung von Raphael war sehr gut zu verstehen und sehr ruhig und kompetent erklärt. Man fühlt sich nicht belehrt sondern verstanden.",
+              relativeTime: "vor einer Woche",
+              profilePhoto: "https://ui-avatars.com/api/?name=Maranta&background=8b5cf6&color=fff&size=128"
             },
             {
-              name: "Lars Daniel Krauter",
+              name: "Sabrina Baschin",
               rating: 5,
-              text: "Wir sind sehr zufrieden! Raphael war freundlich, zuverlässig und hat die Einrichtung unseres Fernsehers perfekt erledigt. Vielen Dank für den tollen Service.",
-              relativeTime: "vor 1 Monat",
-              profilePhoto: "https://ui-avatars.com/api/?name=Lars+Krauter&background=10b981&color=fff&size=128"
+              text: "Ich war mit dem Technikberater äußerst zufrieden. Er hat mir nicht nur den neuen Blue-Ray-Player eingerichtet, sondern mir auch gute Skizzen beispielsweise der Fernbedienung gemacht. Außerdem hat er zusätzlich die Schwierigkeiten mit meinem Drucker behoben.",
+              relativeTime: "vor einer Woche",
+              profilePhoto: "https://ui-avatars.com/api/?name=Sabrina+Baschin&background=10b981&color=fff&size=128"
             }
           ]);
         }
@@ -53,22 +53,22 @@ export default function ReviewsSection() {
         // Fallback Reviews bei Fehler
         setReviews([
           {
-            name: "Stefanie Übele",
+            name: "CoachD",
             rating: 5,
-            text: "Ich bin absolut begeistert von MIRA Technikwelt! Der Service ist professionell, zuverlässig und vor allem persönlich auf meine Bedürfnisse abgestimmt.",
-            relativeTime: "vor 2 Monaten"
+            text: "Sehr gute und vor allem unkomplizierte Beratung sowie Einrichtung. Mickael war sehr kompetent und freundlich!",
+            relativeTime: "vor einer Woche"
           },
           {
-            name: "Nadia Herrmann",
+            name: "Maranta",
             rating: 5,
-            text: "Bin sehr zufrieden mit dem Service. Auch als es beim Telefonanschluss Schwierigkeiten gab, wurde das schnell und kompetent behoben.",
-            relativeTime: "vor 3 Monaten"
+            text: "Die Beratung von Raphael war sehr gut zu verstehen und sehr ruhig und kompetent erklärt. Man fühlt sich nicht belehrt sondern verstanden.",
+            relativeTime: "vor einer Woche"
           },
           {
-            name: "Lars Daniel Krauter",
+            name: "Sabrina Baschin",
             rating: 5,
-            text: "Wir sind sehr zufrieden! Raphael war freundlich, zuverlässig und hat die Einrichtung unseres Fernsehers perfekt erledigt.",
-            relativeTime: "vor 1 Monat"
+            text: "Ich war mit dem Technikberater äußerst zufrieden. Er hat mir nicht nur den neuen Blue-Ray-Player eingerichtet, sondern mir auch gute Skizzen beispielsweise der Fernbedienung gemacht. Außerdem hat er zusätzlich die Schwierigkeiten mit meinem Drucker behoben.",
+            relativeTime: "vor einer Woche"
           }
         ]);
       } finally {
