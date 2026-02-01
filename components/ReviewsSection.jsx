@@ -29,21 +29,21 @@ export default function ReviewsSection() {
               name: "CoachD",
               rating: 5,
               text: "Sehr gute und vor allem unkomplizierte Beratung sowie Einrichtung. Mickael war sehr kompetent und freundlich!",
-              relativeTime: "vor einer Woche",
+              relativeTime: "",
               profilePhoto: "https://ui-avatars.com/api/?name=CoachD&background=3b82f6&color=fff&size=128"
             },
             {
               name: "Maranta",
               rating: 5,
               text: "Die Beratung von Raphael war sehr gut zu verstehen und sehr ruhig und kompetent erklärt. Man fühlt sich nicht belehrt sondern verstanden.",
-              relativeTime: "vor einer Woche",
+              relativeTime: "",
               profilePhoto: "https://ui-avatars.com/api/?name=Maranta&background=8b5cf6&color=fff&size=128"
             },
             {
               name: "Sabrina Baschin",
               rating: 5,
               text: "Ich war mit dem Technikberater äußerst zufrieden. Er hat mir nicht nur den neuen Blue-Ray-Player eingerichtet, sondern mir auch gute Skizzen beispielsweise der Fernbedienung gemacht. Außerdem hat er zusätzlich die Schwierigkeiten mit meinem Drucker behoben.",
-              relativeTime: "vor einer Woche",
+              relativeTime: "",
               profilePhoto: "https://ui-avatars.com/api/?name=Sabrina+Baschin&background=10b981&color=fff&size=128"
             }
           ]);
@@ -56,19 +56,19 @@ export default function ReviewsSection() {
             name: "CoachD",
             rating: 5,
             text: "Sehr gute und vor allem unkomplizierte Beratung sowie Einrichtung. Mickael war sehr kompetent und freundlich!",
-            relativeTime: "vor einer Woche"
+            relativeTime: ""
           },
           {
             name: "Maranta",
             rating: 5,
             text: "Die Beratung von Raphael war sehr gut zu verstehen und sehr ruhig und kompetent erklärt. Man fühlt sich nicht belehrt sondern verstanden.",
-            relativeTime: "vor einer Woche"
+            relativeTime: ""
           },
           {
             name: "Sabrina Baschin",
             rating: 5,
             text: "Ich war mit dem Technikberater äußerst zufrieden. Er hat mir nicht nur den neuen Blue-Ray-Player eingerichtet, sondern mir auch gute Skizzen beispielsweise der Fernbedienung gemacht. Außerdem hat er zusätzlich die Schwierigkeiten mit meinem Drucker behoben.",
-            relativeTime: "vor einer Woche"
+            relativeTime: ""
           }
         ]);
       } finally {
@@ -86,7 +86,7 @@ export default function ReviewsSection() {
     const startAutoplay = () => {
       timeoutRef.current = setTimeout(() => {
         setCurrentIndex((prev) => (prev + 1) % reviews.length);
-      }, 6000);
+      }, 5000);
     };
 
     startAutoplay();

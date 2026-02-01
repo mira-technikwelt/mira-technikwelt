@@ -197,11 +197,12 @@ export default function ServiceGebietePage() {
               ))}
             </div>
 
-            {/* Detailed Zone Information */}
+            {/* Detailed Zone Information - Collapsible */}
             {zones.map((zone, zoneIndex) => {
               const DetailedZone = ({ zone, zoneIndex }: { zone: typeof zones[0], zoneIndex: number }) => {
                 const ref = useRef(null);
                 const isInView = useInView(ref, { once: true, margin: "-100px" });
+                const [isExpanded, setIsExpanded] = useState(zoneIndex === 0); // Erste Zone standardmäßig offen
                 
                 // Animation: 1 from left, 2 from right, 3 from left
                 const xDirection = zoneIndex % 2 === 0 ? -100 : 100;
@@ -212,41 +213,78 @@ export default function ServiceGebietePage() {
                     initial={{ opacity: 0, x: xDirection }}
                     animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: xDirection }}
                     transition={{ duration: 0.6, delay: 0.2 }}
-                    className="mb-8 sm:mb-12"
+                    className="mb-4 sm:mb-6"
                   >
-                <div className="bg-gradient-to-br from-slate-900 to-slate-800 rounded-2xl sm:rounded-3xl border border-slate-700 p-6 sm:p-8">
-                  <div className="flex items-center gap-3 sm:gap-4 mb-4 sm:mb-6">
-                    <div 
-                      className="w-12 h-12 sm:w-16 sm:h-16 rounded-full flex items-center justify-center text-white font-bold text-lg sm:text-2xl"
-                      style={{ backgroundColor: zone.color }}
-                    >
-                      {zoneIndex + 1}
-                    </div>
-                    <div>
-                      <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white">
-                        {zone.name}
-                      </h2>
-                      <p className="text-xs sm:text-sm md:text-base text-slate-400 mt-1">
-                        {zone.description}
-                      </p>
-                    </div>
-                  </div>
-
-                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4">
-                    {zone.cities.map((city) => (
-                      <div
-                        key={city.name}
-                        className="bg-slate-800/50 rounded-lg p-3 sm:p-4 border border-slate-700 hover:border-blue-500/50 transition-colors"
+                <div className="bg-gradient-to-br from-slate-900 to-slate-800 rounded-2xl sm:rounded-3xl border border-slate-700 overflow-hidden">
+                  {/* Accordion Header */}
+                  <button
+                    onClick={() => setIsExpanded(!isExpanded)}
+                    className="w-full p-6 sm:p-8 flex items-center justify-between hover:bg-slate-800/50 transition-colors"
+                  >
+                    <div className="flex items-center gap-3 sm:gap-4">
+                      <div 
+                        className="w-12 h-12 sm:w-16 sm:h-16 rounded-full flex items-center justify-center text-white font-bold text-lg sm:text-2xl flex-shrink-0"
+                        style={{ backgroundColor: zone.color }}
                       >
-                        <h4 className="text-sm sm:text-base md:text-lg font-semibold text-white mb-1">
-                          {city.name}
-                        </h4>
-                        <p className="text-xs sm:text-sm text-slate-400">
-                          {city.description}
-                        </p>
+                        {zoneIndex + 1}
                       </div>
-                    ))}
-                  </div>
+                      <div className="text-left">
+                        <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-white">
+                          {zone.name}
+                        </h2>
+                        <p className="text-xs sm:text-sm md:text-base text-slate-400 mt-1">
+                          {zone.description}
+                        </p>
+                        <span className="text-xs text-slate-500 mt-1 inline-block">
+                          {zone.cities.length} Städte
+                        </span>
+                      </div>
+                    </div>
+                    
+                    {/* Expand/Collapse Icon */}
+                    <motion.svg
+                      animate={{ rotate: isExpanded ? 180 : 0 }}
+                      transition={{ duration: 0.3 }}
+                      className="w-6 h-6 sm:w-8 sm:h-8 text-blue-500 flex-shrink-0 ml-4"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                    </motion.svg>
+                  </button>
+
+                  {/* Accordion Content */}
+                  <motion.div
+                    initial={false}
+                    animate={{ 
+                      height: isExpanded ? "auto" : 0,
+                      opacity: isExpanded ? 1 : 0
+                    }}
+                    transition={{ duration: 0.3, ease: "easeInOut" }}
+                    className="overflow-hidden"
+                  >
+                    <div className="px-6 sm:px-8 pb-6 sm:pb-8 pt-2">
+                      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4">
+                        {zone.cities.map((city, cityIndex) => (
+                          <motion.div
+                            key={city.name}
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.3, delay: cityIndex * 0.03 }}
+                            className="bg-slate-800/50 rounded-lg p-3 sm:p-4 border border-slate-700 hover:border-blue-500/50 transition-colors"
+                          >
+                            <h4 className="text-sm sm:text-base md:text-lg font-semibold text-white mb-1">
+                              {city.name}
+                            </h4>
+                            <p className="text-xs sm:text-sm text-slate-400">
+                              {city.description}
+                            </p>
+                          </motion.div>
+                        ))}
+                      </div>
+                    </div>
+                  </motion.div>
                 </div>
                   </motion.div>
                 );

@@ -8,6 +8,11 @@ html {
   background-color: #000;
   color-scheme: dark;
   --color-scheme: dark;
+  scroll-behavior: smooth;
+}
+
+* {
+  scroll-behavior: smooth;
 }
 
 /* Force dark mode only */
