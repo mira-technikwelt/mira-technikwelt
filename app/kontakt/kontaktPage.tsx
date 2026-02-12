@@ -82,7 +82,7 @@ export default function KontaktPage() {
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.6, delay: 0.2 }}
               >
-                <div className="bg-gradient-to-br from-slate-900 to-slate-800 rounded-2xl sm:rounded-3xl border border-slate-700 p-4 sm:p-8">
+                <div className="bg-gradient-to-b from-slate-950 via-slate-900 to-slate-900 rounded-2xl sm:rounded-3xl border border-slate-700 p-4 sm:p-8">
                   <h2 className="text-2xl sm:text-3xl font-bold text-white mb-4 sm:mb-6">
                     Kontaktformular
                   </h2>
@@ -195,7 +195,7 @@ export default function KontaktPage() {
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.6, delay: 0.3 }}
               >
-                <div className="bg-gradient-to-br from-slate-900 to-slate-800 rounded-2xl sm:rounded-3xl border border-slate-700 p-4 sm:p-8">
+                <div className="bg-gradient-to-b from-slate-950 via-slate-900 to-slate-900 rounded-2xl sm:rounded-3xl border border-slate-700 p-4 sm:p-8">
                   <h2 className="text-2xl sm:text-3xl font-bold text-white mb-4 sm:mb-6">
                     Direkter Kontakt
                   </h2>

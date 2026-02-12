@@ -156,15 +156,15 @@ export default function GamingPCPage() {
                   Wir bauen PCs für alle Anwendungsfälle: Competitive Gaming in CS2 und Valorant, AAA-Spiele in 4K, Content Creation oder Streaming.
                 </p>
                 <div className="mt-4 sm:mt-6 space-y-3 sm:space-y-4">
-                  <div className="bg-gradient-to-br from-slate-800 to-slate-900 rounded-xl sm:rounded-2xl p-3 sm:p-4 md:p-6 border border-slate-700">
+                  <div className="bg-gradient-to-b from-slate-950 via-slate-900 to-slate-900 rounded-xl sm:rounded-2xl p-3 sm:p-4 md:p-6 border border-slate-700">
                     <h3 className="text-sm sm:text-base md:text-lg lg:text-xl font-bold text-white mb-1 sm:mb-2">Budget Gaming-PCs</h3>
                     <p className="text-xs sm:text-sm md:text-base text-slate-300">Optimale Performance für 1080p Gaming – kein Kompromiss bei der Qualität.</p>
                   </div>
-                  <div className="bg-gradient-to-br from-slate-800 to-slate-900 rounded-xl sm:rounded-2xl p-3 sm:p-4 md:p-6 border border-slate-700">
+                  <div className="bg-gradient-to-b from-slate-950 via-slate-900 to-slate-900 rounded-xl sm:rounded-2xl p-3 sm:p-4 md:p-6 border border-slate-700">
                     <h3 className="text-sm sm:text-base md:text-lg lg:text-xl font-bold text-white mb-1 sm:mb-2">High-End Gaming</h3>
                     <p className="text-xs sm:text-sm md:text-base text-slate-300">Maximale Performance für 1440p/4K Gaming und die neuesten AAA-Titel.</p>
                   </div>
-                  <div className="bg-gradient-to-br from-slate-800 to-slate-900 rounded-xl sm:rounded-2xl p-3 sm:p-4 md:p-6 border border-slate-700">
+                  <div className="bg-gradient-to-b from-slate-950 via-slate-900 to-slate-900 rounded-xl sm:rounded-2xl p-3 sm:p-4 md:p-6 border border-slate-700">
                     <h3 className="text-sm sm:text-base md:text-lg lg:text-xl font-bold text-white mb-1 sm:mb-2">Custom Builds & Spezial-PCs</h3>
                     <p className="text-xs sm:text-sm md:text-base text-slate-300">Individuelle Wünsche: RGB-Beleuchtung, Custom Watercooling, Silent-PCs oder kompakte Mini-ITX Builds.</p>
                   </div>

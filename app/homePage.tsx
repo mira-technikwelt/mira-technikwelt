@@ -45,7 +45,7 @@ export default function HomePage() {
     <div className="fixed inset-0 z-0">
      <BackgroundLines className="flex items-center justify-center w-full h-full">
         <div className="text-center text-white max-w-4xl px-4 sm:px-6 md:px-8">
-          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-8xl font-bold mb-4 sm:mb-6">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-8xl font-bold mb-4 sm:mb-6 font-[family-name:var(--font-inter-tight)]">
             <ShinyText 
                 text="MIRA Technikwelt" 
                 disabled={false} 

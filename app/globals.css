@@ -5,7 +5,6 @@
 html {
   width: 100%;
   overflow-x: hidden;
-  background-color: #000;
   color-scheme: dark;
   --color-scheme: dark;
   scroll-behavior: smooth;
@@ -25,7 +24,6 @@ html {
 body {
   width: 100%;
   overflow-x: hidden;
-  background-color: #000;
   color: white;
 }
 

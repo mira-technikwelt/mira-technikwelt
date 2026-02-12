@@ -112,7 +112,7 @@ export default function ReviewsSection() {
 
   if (loading) {
     return (
-      <section className="relative overflow-hidden bg-[#1F2F4A]">
+      <section className="relative overflow-hidden bg-[#13233A]">
         <div className="relative z-10 py-12 sm:py-20">
           <div className="max-w-7xl mx-auto px-4 sm:px-8">
             <div className="text-center mb-8">
@@ -130,7 +130,7 @@ export default function ReviewsSection() {
   }
 
   return (
-    <section className="relative overflow-hidden bg-[#1F2F4A]">
+    <section className="relative overflow-hidden bg-[#13233A]">
       <div className="relative z-10 py-12 sm:py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-8">
           

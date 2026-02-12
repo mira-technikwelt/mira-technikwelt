@@ -13,10 +13,6 @@ const config: Config = {
   plugins: [
     require("tailwindcss-animate")
   ],
-  // Erzwinge Dark Mode als Standard
-  corePlugins: {
-    preflight: true,
-  },
 };
 
 export default config;

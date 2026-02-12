@@ -127,7 +127,7 @@ export default function AboutSection() {
   return (
     <section
       ref={sectionRef}
-      className="relative bg-gradient-to-b from-slate-900 to-slate-800 min-h-screen flex items-center mx-auto"
+      className="relative bg-gradient-to-b from-slate-950 via-slate-900 to-slate-900 min-h-screen flex items-center mx-auto"
     >
       <div className="w-full px-4 sm:px-8 py-12 sm:py-20">
         {/* Erste Row - Bild links, Text rechts */}

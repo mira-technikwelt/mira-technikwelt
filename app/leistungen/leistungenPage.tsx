@@ -43,7 +43,7 @@ export default function LeistungenPage() {
   // NUR Opacity Fade - KEINE Bewegung!
   const ServiceCard = ({ service }: { service: typeof services[0] }) => {
     const ref = useRef<HTMLDivElement>(null);
-    const [opacity, setOpacity] = useState(0.3);
+    const [opacity, setOpacity] = useState(0);
     const hasAnimatedRef = useRef(false);
 
     useEffect(() => {
@@ -61,8 +61,8 @@ export default function LeistungenPage() {
           });
         },
         {
-          threshold: 0.2,
-          rootMargin: '-50px',
+          threshold: 0.1,
+          rootMargin: '0px',
         }
       );
 
@@ -78,10 +78,16 @@ export default function LeistungenPage() {
         ref={ref}
         style={{ 
           opacity,
-          transition: 'opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1)',
+          transition: 'opacity 1.5s cubic-bezier(0.25, 0.46, 0.45, 0.94)',
         }}
         onClick={() => setSelectedService(service)} 
-        className="group w-full h-64 sm:h-80 md:h-96 bg-gradient-to-br from-slate-800 to-slate-900 rounded-2xl border border-slate-700 overflow-hidden cursor-pointer transition-all duration-500 hover:scale-105 hover:border-blue-500/50"
+        className="group w-full h-64 sm:h-80 md:h-96 bg-gradient-to-b 
+          from-[#14243A] 
+          to-[#0F1C2E]
+
+          border border-white/5
+          hover:shadow-[0_0_30px_rgba(59,130,246,0.15)]
+          rounded-2xl border border-slate-700 overflow-hidden cursor-pointer transition-[transform,border-color,box-shadow] duration-[1200ms] ease-[cubic-bezier(0.25,0.46,0.45,0.94)] hover:scale-[1.03] hover:border-blue-500/50"
       >
         {/* Bild oben */}
         <div className="h-40 sm:h-48 md:h-60 bg-gradient-to-br from-blue-500/20 to-cyan-400/20 flex items-center justify-center relative overflow-hidden">
@@ -90,7 +96,7 @@ export default function LeistungenPage() {
             alt={service.title}
             width={640}
             height={480}
-            className="object-cover w-full h-full transition-transform duration-300 group-hover:scale-105"
+            className="object-cover w-full h-full transition-transform duration-[1200ms] ease-[cubic-bezier(0.25,0.46,0.45,0.94)] group-hover:scale-105"
             quality={90}
             loading="lazy"
           />
@@ -98,7 +104,7 @@ export default function LeistungenPage() {
 
         {/* Text unten */}
         <div className="p-3 sm:p-4 md:p-6">
-          <h3 className="text-sm sm:text-lg md:text-2xl font-bold text-white text-center mb-1 sm:mb-2 transition-colors duration-300 group-hover:text-blue-500">
+          <h3 className="text-sm sm:text-lg md:text-2xl font-bold text-white text-center mb-1 sm:mb-2 transition-colors duration-[1200ms] ease-[cubic-bezier(0.25,0.46,0.45,0.94)] group-hover:text-blue-500">
             {service.title}
           </h3>
           <p className="text-xs sm:text-sm text-slate-400 text-center">
@@ -111,7 +117,7 @@ export default function LeistungenPage() {
 
   return (
     <>
-      <div className="fixed inset-0 -z-10 bg-black"></div>
+      <div className="fixed inset-0 -z-10 bg-blacks"></div>
       
       <div className="relative z-10">
         <Navigation />
@@ -191,7 +197,8 @@ export default function LeistungenPage() {
            {/* CTA Section */}
             <div className="mt-12 sm:mt-24 relative overflow-hidden">
               <div className="relative bg-white/5 backdrop-blur-xl rounded-2xl sm:rounded-3xl p-6 sm:p-12 border border-white/10 shadow-2xl">
-                <div className="absolute inset-0 bg-gradient-to-br from-blue-500/10 via-transparent to-cyan-400/10 rounded-2xl sm:rounded-3xl" />
+                <div className="absolute inset-0 bg-gradient-to-br from-blue-500/10
+                                                  via-transparent to-cyan-400/10 rounded-2xl sm:rounded-3xl" />
                 
                 <div className="relative z-10 text-center">
                   <h2 className="text-2xl sm:text-3xl md:text-5xl font-bold text-white mb-3 sm:mb-6">
