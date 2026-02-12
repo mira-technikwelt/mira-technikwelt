@@ -1,6 +1,28 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 
+/* Font Configuration */
+
+/* All Text - Outfit */
+* {
+  font-family: var(--font-outfit), sans-serif;
+}
+
+/* Headlines - Outfit Bold */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 700;
+}
+
+/* Buttons - Outfit Medium */
+button, .button, .learn-more-button, .cta, .google-button {
+  font-weight: 500;
+}
+
+/* Body Text - Outfit Regular */
+body, p, span, div {
+  font-weight: 400;
+}
+
 /* Prevent horizontal scrolling on mobile and set proper viewport fill */
 html {
   width: 100%;

@@ -1,18 +1,12 @@
 import type { Metadata } from "next";
-import { Inter, Inter_Tight } from "next/font/google";
+import { Outfit } from "next/font/google";
 import "./globals.css";
 import { LocalBusinessSchema } from "@/app/schema";
 
-const inter = Inter({
+const outfit = Outfit({
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-  variable: "--font-inter",
-});
-
-const interTight = Inter_Tight({
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "800", "900"],
-  variable: "--font-inter-tight",
+  weight: ["400", "500", "600", "700", "800"],
+  variable: "--font-outfit",
 });
 
 export const metadata: Metadata = {
@@ -32,7 +26,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
       </head>
-      <body className={`${inter.className} ${inter.variable} ${interTight.variable} overflow-x-hidden bg-black`} suppressHydrationWarning>
+      <body className={`${outfit.className} ${outfit.variable} overflow-x-hidden bg-black`} suppressHydrationWarning>
         {children}
       </body>
     </html>
