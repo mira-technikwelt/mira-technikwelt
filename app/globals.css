@@ -1,24 +1,41 @@
 @import "tailwindcss";
 @import "tw-animate-css";
 
-/* Font Configuration */
-
-/* All Text - Outfit */
-* {
-  font-family: var(--font-outfit), sans-serif;
+/* Switzer Font - Add your font files to /public/fonts/ */
+@font-face {
+  font-family: 'Switzer';
+  src: url('/fonts/Switzer-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
 }
 
-/* Headlines - Outfit Bold */
+@font-face {
+  font-family: 'Switzer';
+  src: url('/fonts/Switzer-Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Font Configuration */
+
+/* All Text - Switzer */
+* {
+  font-family: 'Switzer', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+/* Headlines - Switzer Bold */
 h1, h2, h3, h4, h5, h6 {
   font-weight: 700;
 }
 
-/* Buttons - Outfit Medium */
+/* Buttons - Switzer Regular */
 button, .button, .learn-more-button, .cta, .google-button {
-  font-weight: 500;
+  font-weight: 400;
 }
 
-/* Body Text - Outfit Regular */
+/* Body Text - Switzer Regular */
 body, p, span, div {
   font-weight: 400;
 }
@@ -356,6 +373,77 @@ body {
   50% {
     transform: translateY(-10px);
     }
+  }
+}
+
+/* Scroll Indicator */
+.scroll-indicator {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  cursor: pointer;
+  z-index: 20;
+  opacity: 0.9;
+  transition: opacity 0.3s ease;
+  animation: fadeInUp 1s ease-out 0.5s both, bounce 2s ease-in-out 2s infinite;
+}
+
+.scroll-indicator:hover {
+  opacity: 1;
+  animation: bounce 2s ease-in-out infinite;
+}
+
+.mouse {
+  width: 26px;
+  height: 40px;
+  border: 2px solid rgba(255, 255, 255, 0.8);
+  border-radius: 15px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  padding-top: 8px;
+}
+
+.wheel {
+  width: 3px;
+  height: 8px;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 2px;
+  animation: scroll 1.5s cubic-bezier(0.65, -0.55, 0.25, 1.5) infinite;
+}
+
+@keyframes scroll {
+  0% {
+    opacity: 0;
+    transform: translateY(0);
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateX(-50%) translateY(20px);
+  }
+  to {
+    opacity: 0.9;
+    transform: translateX(-50%) translateY(0);
+  }
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateX(-50%) translateY(0);
+  }
+  50% {
+    transform: translateX(-50%) translateY(-15px);
   }
 }
 

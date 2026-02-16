@@ -9,6 +9,7 @@ import AboutSection from '@/components/aboutSection';
 import ServicesSection from '@/components/servicesSection';
 import ReviewsSection from '@/components/ReviewsSection';
 import Footer from '@/components/Footer';
+import ScrollIndicator from '@/components/ScrollIndicator';
 import { Zap, Euro, User, Phone } from 'lucide-react';
 
 export default function HomePage() {
@@ -98,6 +99,7 @@ export default function HomePage() {
             </button>
           </div>
         </div>
+        <ScrollIndicator />
       </BackgroundLines>
     </div>
 
