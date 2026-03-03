@@ -1,115 +1,172 @@
 "use client"
-import ShinyText from '@/components/ShinyText';
 import { useState, useEffect } from 'react';
 import Preloader from '@/components/Preloader';
 import { useRouter } from 'next/navigation';
-import { BackgroundLines } from '@/components/ui/background-lines';
 import Navigation from './Navigation';
 import AboutSection from '@/components/aboutSection';
 import ServicesSection from '@/components/servicesSection';
 import ReviewsSection from '@/components/ReviewsSection';
 import Footer from '@/components/Footer';
-import ScrollIndicator from '@/components/ScrollIndicator';
 import { Zap, Euro, User, Phone } from 'lucide-react';
 
 export default function HomePage() {
   const [loading, setLoading] = useState(true);
   const router = useRouter();
 
-  // Restore scroll position on back navigation, otherwise scroll to top
   useEffect(() => {
     const savedPosition = sessionStorage.getItem('scrollPosition');
     const skipRestore = sessionStorage.getItem('skipScrollRestore');
-    
     if (savedPosition && !skipRestore) {
-      // Zurück-Navigation: Position wiederherstellen
       setTimeout(() => {
         window.scrollTo({ top: parseInt(savedPosition), left: 0, behavior: 'instant' });
       }, 0);
       sessionStorage.removeItem('scrollPosition');
     } else {
-      // Frischer Seitenaufruf: nach oben scrollen
       window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
     }
-    
-    // Clean up skip flag
     sessionStorage.removeItem('skipScrollRestore');
   }, []);
+
+useEffect(() => {
+  const vh = window.innerHeight * 0.01;
+  document.documentElement.style.setProperty('--vh', `${vh}px`);
+}, []);
 
   return (
   <>
     {loading && <Preloader onComplete={() => setLoading(false)} />}
-    
     <Navigation />
-    
-    {/* Hero - fixed im Hintergrund */}
+
+    {/* ── HERO ── */}
     <div className="fixed inset-0 z-0">
-     <BackgroundLines className="flex items-center justify-center w-full h-full">
-        <div className="text-center text-white max-w-4xl px-4 sm:px-6 md:px-8">
-          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-8xl font-bold mb-4 sm:mb-6 font-[family-name:var(--font-inter-tight)]">
-            <ShinyText 
-                text="MIRA Technikwelt" 
-                disabled={false} 
-                speed={10} 
-                className="bg-gradient-to-r from-[#6C8DB9] to-[#6D8FBA] bg-clip-text text-transparent"
-            />
+      <div className="relative w-full overflow-hidden" style={{ maxWidth: '5120px', margin: '0 auto', height: 'calc(var(--vh, 1vh) * 100)' }}>
+
+        {/* Hintergrundbild */}
+        <div
+          className="absolute inset-0 bg-center"
+          style={{ 
+            backgroundImage: "url('/hero_background.png')",
+  backgroundSize: 'cover',
+  backgroundPosition: 'center top',
+          }}
+        />
+
+        {/* Desktop Gradient – links dunkel, rechts transparent */}
+        <div
+          className="absolute inset-0 hero-overlay-desktop"
+          style={{
+            background: 'linear-gradient(to right, rgba(10, 20, 50, 0.75) 0%, rgba(10, 20, 50, 0.5) 30%, rgba(10, 20, 50, 0.15) 55%, transparent 75%)',
+          }}
+        />
+
+        {/* Mobiles Overlay – volle Fläche abdunkeln */}
+        <div
+          className="absolute inset-0 hero-overlay-mobile"
+          style={{ background: 'rgba(10, 20, 50, 0.72)' }}
+        />
+
+        {/* ── HERO CONTENT ── */}
+        <div className="absolute inset-0 flex items-center hero-content-wrapper" style={{ paddingBottom: '160px', paddingTop: '80px' }}>
+          <div className="hero-text-block" style={{ animation: 'heroIn 0.75s ease both' }}>
+
+            {/* Willkommen bei */}
+            <span style={{
+              display: 'block',
+              fontSize: 'clamp(0.7rem, 1.2vw, 0.9rem)',
+              fontWeight: 500,
+              color: 'rgba(255, 255, 255, 0.55)',
+              letterSpacing: '0.18em',
+              textTransform: 'uppercase',
+              marginBottom: '10px',
+            }}>
+              Willkommen bei
+            </span>
+
+            {/* MIRA Technikwelt */}
+            <h1
+              className="font-[family-name:var(--font-inter-tight)]"
+              style={{
+                fontSize: 'clamp(1.8rem, 5vw, 5.5rem)',
+                fontWeight: 900,
+                lineHeight: 1.0,
+                letterSpacing: '-0.02em',
+                marginBottom: '14px',
+                animation: 'heroIn 0.75s 0.15s ease both',
+              }}
+            >
+              <span style={{ color: '#60a5fa' }}>MIRA </span>
+              <span style={{ color: '#ffffff' }}>Technikwelt</span>
             </h1>
 
-            <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-semibold mb-3 sm:mb-4">
-            Technikberatung aus Backnang <br />
-            für Rems-Murr-Kreis & Region Stuttgart
+            {/* Subline */}
+            <p style={{
+              fontSize: 'clamp(1rem, 2.2vw, 1.35rem)',
+              fontWeight: 400,
+              color: '#ffffff',
+              marginBottom: '22px',
+              animation: 'heroIn 0.75s 0.20s ease both',
+            }}>
+              Technikberatung aus Backnang <br></br>für Rems‑Murr‑Kreis &amp; Region Stuttgart
             </p>
 
-            <p className="text-sm sm:text-base md:text-lg text-slate-300 mb-4 sm:mb-6 leading-relaxed">
-            Wir kommen zu Ihnen nach Hause und richten Fernseher, Computer, Router, Smart Home und vieles mehr ein.<br />
-            Persönlich, verständlich, zuverlässig.
+            {/* Beschreibung */}
+            <p style={{
+              fontSize: 'clamp(0.9rem, 1.9vw, 1.05rem)',
+              lineHeight: 1.75,
+              color: 'rgba(220, 220, 220, 0.95)',
+              maxWidth: '360px',
+              marginBottom: '36px',
+              animation: 'heroIn 0.75s 0.22s ease both',
+            }}>
+              Wir kommen zu Ihnen nach Hause und richten Fernseher, Computer, Router,
+              Smart Home und vieles mehr ein.{' '}
+              <strong style={{ color: '#60a5fa', fontWeight: 600, display: 'block', marginTop: '6px' }}>
+                Persönlich, verständlich, zuverlässig.
+              </strong>
             </p>
-
-            <div className="flex flex-wrap justify-center gap-6 sm:gap-8 mb-6 sm:mb-8">
-            <div className="flex items-center gap-2 text-sm text-slate-300">
-                <Zap className="w-4 h-4 text-blue-400" />
-                <span>Noch am selben Tag</span>
+            
+            {/* Button */}
+            <div style={{ animation: 'heroIn 0.75s 0.30s ease both' }}>
+              <button
+                className="hero-button button text-sm sm:text-base px-4 sm:px-6"
+                onClick={() => router.push('/leistungen')}
+              >
+                Unsere Leistungen
+                <svg fill="currentColor" viewBox="0 0 24 24" className="icon">
+                  <path
+                    clipRule="evenodd"
+                    d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zm4.28 10.28a.75.75 0 000-1.06l-3-3a.75.75 0 10-1.06 1.06l1.72 1.72H8.25a.75.75 0 000 1.5h5.69l-1.72 1.72a.75.75 0 101.06 1.06l3-3z"
+                    fillRule="evenodd"
+                  />
+                </svg>
+              </button>
             </div>
-            <div className="flex items-center gap-2 text-sm text-slate-300">
-                <Euro className="w-4 h-4 text-blue-400" />
-                <span>Festpreise</span>
-            </div>
-            <div className="flex items-center gap-2 text-sm text-slate-300">
-                <User className="w-4 h-4 text-blue-400" />
-                <span>Persönlicher Ansprechpartner</span>
-            </div>
-            <div className="flex items-center gap-2 text-sm text-slate-300">
-                <Phone className="w-4 h-4 text-blue-400" />
-                <span>Kein Callcenter</span>
-            </div>
-            </div>
-          <div className="flex justify-center mb-8 sm:mb-12">
-            <button
-              className="hero-button button text-sm sm:text-base px-4 sm:px-6"
-              onClick={() => router.push('/leistungen')}
-            >
-              Unsere Leistungen
-              <svg fill="currentColor" viewBox="0 0 24 24" className="icon">
-                <path
-                  clipRule="evenodd"
-                  d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zm4.28 10.28a.75.75 0 000-1.06l-3-3a.75.75 0 10-1.06 1.06l1.72 1.72H8.25a.75.75 0 000 1.5h5.69l-1.72 1.72a.75.75 0 101.06 1.06l3-3z"
-                  fillRule="evenodd"
-                ></path>
-              </svg>
-            </button>
           </div>
         </div>
-        <ScrollIndicator />
-      </BackgroundLines>
+
+        {/* ── SCROLL DOWN INDICATOR ── */}
+        <div
+          className="absolute bottom-16 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-3"
+          style={{ animation: 'heroIn 0.75s 0.50s ease both' }}
+        >
+          <div className="mouse-btn">
+            <span className="mouse-scroll"></span>
+          </div>
+          <span className="text-xs sm:text-sm font-medium text-white/60" style={{ letterSpacing: '0.1em' }}>
+            Scroll Down
+          </span>
+        </div>
+
+      </div>
     </div>
 
-    {/* Content scrollt über Hero */}
-    <div className="relative z-10" style={{ marginTop: '100vh' }}>
+        <div style={{ height: 'calc(var(--vh, 1vh) * 100)' }} />
+    {/* Restlicher Seiteninhalt */}
+    <div className="relative z-10" style={{ marginTop: 0 }}>
       <AboutSection />
       <ServicesSection />
       <ReviewsSection />
       <Footer />
-
     </div>
   </>
   );

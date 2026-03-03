@@ -140,7 +140,7 @@ export default function ServiceGebietePage() {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="mb-12 sm:mb-16"
             >
-              <div className="bg-gradient-to-br from-slate-900 to-slate-800 rounded-2xl sm:rounded-3xl border border-slate-700 p-6 sm:p-8">
+              <div className="bg-gradient-to-br from-[#0f172a] to-slate-800 rounded-2xl sm:rounded-3xl border border-slate-700 p-6 sm:p-8">
                 <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-4 sm:mb-6">
                   Interaktive Karte
                 </h2>
@@ -159,7 +159,7 @@ export default function ServiceGebietePage() {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.6, delay: 0.3 + index * 0.1 }}
                   onClick={() => setSelectedZone(selectedZone === zone.id ? null : zone.id)}
-                  className={`bg-gradient-to-b from-slate-950 via-slate-900 to-slate-900 to-slate-800 rounded-xl sm:rounded-2xl border-2 p-4 sm:p-6 cursor-pointer transition-all duration-300 ${
+                  className={`bg-gradient-to-b from-[#0f172a] via-slate-900 to-slate-900 to-slate-800 rounded-xl sm:rounded-2xl border-2 p-4 sm:p-6 cursor-pointer transition-all duration-300 ${
                     selectedZone === zone.id 
                       ? 'border-blue-500 shadow-lg shadow-blue-500/50' 
                       : 'border-slate-700 hover:border-blue-500/50'
@@ -215,7 +215,7 @@ export default function ServiceGebietePage() {
                     transition={{ duration: 0.6, delay: 0.2 }}
                     className="mb-4 sm:mb-6"
                   >
-                <div className="bg-gradient-to-b from-slate-950 via-slate-900 to-slate-900 rounded-2xl sm:rounded-3xl border border-slate-700 overflow-hidden">
+                <div className="bg-gradient-to-b from-[#0f172a] via-slate-900 to-slate-900 rounded-2xl sm:rounded-3xl border border-slate-700 overflow-hidden">
                   {/* Accordion Header */}
                   <button
                     onClick={() => setIsExpanded(!isExpanded)}

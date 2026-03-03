@@ -156,7 +156,7 @@ export default function GamingPCPage() {
                   Wir bauen PCs für alle Anwendungsfälle: Competitive Gaming in CS2 und Valorant, AAA-Spiele in 4K, Content Creation oder Streaming.
                 </p>
                 <div className="mt-4 sm:mt-6 space-y-3 sm:space-y-4">
-                  <div className="bg-gradient-to-b from-slate-950 via-slate-900 to-slate-900 rounded-xl sm:rounded-2xl p-3 sm:p-4 md:p-6 border border-slate-700">
+                  <div className="bg-gradient-to-b from-[#0f172a] via-slate-900 to-slate-900 rounded-xl sm:rounded-2xl p-3 sm:p-4 md:p-6 border border-slate-700">
                     <h3 className="text-sm sm:text-base md:text-lg lg:text-xl font-bold text-white mb-1 sm:mb-2">Budget Gaming-PCs</h3>
                     <p className="text-xs sm:text-sm md:text-base text-slate-300">Optimale Performance für 1080p Gaming – kein Kompromiss bei der Qualität.</p>
                   </div>
@@ -219,7 +219,7 @@ export default function GamingPCPage() {
                 <p className="text-sm sm:text-base md:text-lg text-slate-300 mb-4">
                   Du musst dich um nichts kümmern – wir liefern dir einen vollständig eingerichteten Gaming-PC, der sofort einsatzbereit ist.
                 </p>
-                <div className="mt-4 sm:mt-6 bg-gradient-to-br from-blue-500/10 to-cyan-400/10 rounded-2xl p-4 sm:p-6 border border-blue-500/20">
+                <div className="mt-4 sm:mt-6 bg-gradient-to-br from-[#0f172a] to-cyan-400/10 rounded-2xl p-4 sm:p-6 border border-blue-500/20">
                   <h3 className="text-xl sm:text-2xl font-bold text-white mb-3 sm:mb-4">Unser Komplett-Service:</h3>
                   <ul className="space-y-1 sm:space-y-2 text-sm sm:text-base text-slate-300">
                     <li>• Detaillierte Beratung & Konfiguration</li>

@@ -89,7 +89,7 @@ export default function ServicesSection() {
   }, [repeatMultiplier, services]);
 
   return (
-    <section className="relative overflow-hidden bg-[#13233A]">
+    <section className="relative overflow-hidden bg-[#122E61]">
       <div className="relative z-10 py-12 sm:py-20">
         <div className="w-full px-4 sm:px-6">
           
@@ -131,7 +131,10 @@ export default function ServicesSection() {
                 <div
                   key={idx}
                   onClick={() => setSelectedService(service)}
-                  className="flex-shrink-0 w-64 sm:w-80 h-80 sm:h-96 bg-gradient-to-br from-slate-800 to-slate-900 rounded-2xl border border-slate-700 overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300"
+                  className="flex-shrink-0 w-64 sm:w-80 h-80 sm:h-96 bg-gradient-to-b 
+          from-[#0f172a] 
+          to-[#0F1C2E]
+ rounded-2xl border border-slate-700 overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-300"
                 >
                   <div className="h-48 sm:h-60 bg-gradient-to-br from-blue-500/20 to-cyan-400/20 flex items-center justify-center relative overflow-hidden">
                     {service.isImage ? (

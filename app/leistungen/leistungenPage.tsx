@@ -82,7 +82,7 @@ export default function LeistungenPage() {
         }}
         onClick={() => setSelectedService(service)} 
         className="group w-full h-64 sm:h-80 md:h-96 bg-gradient-to-b 
-          from-[#14243A] 
+          from-[#0f172a] 
           to-[#0F1C2E]
 
           border border-white/5

@@ -1,39 +1,18 @@
 "use client";
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { motion } from 'motion/react';
-import { useRouter } from 'next/navigation';
 
 gsap.registerPlugin(ScrollTrigger);
 
-// Einfache Wobble Image Komponente mit Scroll Animation
-const WobbleImage = ({ src, alt, href }: { src: string; alt: string; href?: string }) => {
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-  const [isHovering, setIsHovering] = useState(false);
+const WobbleImage = ({ src, alt }: { src: string; alt: string }) => {
   const imageRef = useRef(null);
-  const router = useRouter();
-
-  const handleMouseMove = (event: React.MouseEvent<HTMLElement>) => {
-    const { clientX, clientY } = event;
-    const rect = event.currentTarget.getBoundingClientRect();
-    const x = (clientX - (rect.left + rect.width / 2)) / 20;
-    const y = (clientY - (rect.top + rect.height / 2)) / 20;
-    setMousePosition({ x, y });
-  };
-
-  const handleClick = () => {
-    if (href) {
-      router.push(href);
-    }
-  };
 
   useEffect(() => {
     gsap.fromTo(
       imageRef.current,
-      { 
-        filter: 'brightness(0.4)'
-      },
+      { filter: 'brightness(0.4)' },
       {
         filter: 'brightness(1)',
         scrollTrigger: {
@@ -49,35 +28,27 @@ const WobbleImage = ({ src, alt, href }: { src: string; alt: string; href?: stri
   return (
     <motion.div
       ref={imageRef}
-      onMouseMove={handleMouseMove}
-      onMouseEnter={() => setIsHovering(true)}
-      onMouseLeave={() => {
-        setIsHovering(false);
-        setMousePosition({ x: 0, y: 0 });
-      }}
-      onClick={handleClick}
-      style={{
-        transform: isHovering
-          ? `translate3d(${mousePosition.x}px, ${mousePosition.y}px, 0) scale3d(1.02, 1.02, 1)`
-          : "translate3d(0px, 0px, 0) scale3d(1, 1, 1)",
-        transition: "transform 0.1s ease-out",
-      }}
-      className={`aspect-square rounded-3xl overflow-hidden relative ${href ? 'cursor-pointer' : ''}`}
+      className="aspect-square rounded-3xl overflow-hidden relative"
     >
       <motion.img
         src={src}
         alt={alt}
         className="object-cover w-full h-full"
-        style={{
-          transform: isHovering
-            ? `translate3d(${-mousePosition.x}px, ${-mousePosition.y}px, 0) scale3d(1.05, 1.05, 1)`
-            : "translate3d(0px, 0px, 0) scale3d(1, 1, 1)",
-          transition: "transform 0.1s ease-out",
-        }}
       />
     </motion.div>
   );
 };
+
+const FeatureItems = ({ items }: { items: string[] }) => (
+  <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.75rem 1.5rem', marginTop: '1.5rem', fontWeight: 400, fontSize: '1rem' }}>
+    {items.map((label) => (
+      <div key={label} style={{ display: 'flex', alignItems: 'center', gap: '8px', color: '#94a3b8' }}>
+        <span style={{ color: '#60a5fa' }}>✓</span>
+        <span>{label}</span>
+      </div>
+    ))}
+  </div>
+);
 
 export default function AboutSection() {
   const sectionRef = useRef(null);
@@ -89,10 +60,7 @@ export default function AboutSection() {
   useEffect(() => {
     gsap.fromTo(
       sectionRef.current,
-      {
-        maxWidth: '1280px',
-        borderRadius: '24px 24px 0 0',
-      },
+      { maxWidth: '1280px', borderRadius: '24px 24px 0 0' },
       {
         maxWidth: '100%',
         borderRadius: '0px',
@@ -127,15 +95,14 @@ export default function AboutSection() {
   return (
     <section
       ref={sectionRef}
-      className="relative bg-gradient-to-b from-slate-950 via-slate-900 to-slate-900 min-h-screen flex items-center mx-auto"
+      className="relative bg-[#0f172a] min-h-screen flex items-center mx-auto"
     >
       <div className="w-full px-4 sm:px-8 py-12 sm:py-20">
+
         {/* Erste Row - Bild links, Text rechts */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-16 items-center max-w-7xl mx-auto mb-16 sm:mb-32">
-          {/* Bild links mit Wobble Effekt */}
-          <WobbleImage src="/micka_rapha.png" alt="Raphael - Technikexperte" href="/ueber-uns" />
+          <WobbleImage src="/setup_background.png" alt="Raphael - Technikexperte" />
 
-          {/* Text rechts mit Float Effect */}
           <div>
             <div ref={textRef1} className="text-3xl sm:text-4xl md:text-5xl font-bold mb-3 sm:mb-6 text-white">
               Ihre Technikexperten aus Backnang
@@ -147,14 +114,13 @@ export default function AboutSection() {
               Langsamer Computer? WLAN-Probleme? Neuer Fernseher, aber die Einrichtung ist kompliziert? <br />
               Wir lösen Ihre technischen Probleme schnell und unkompliziert - direkt bei Ihnen vor Ort 
               in Backnang, Winnenden, Waiblingen und Umgebung.
-              
+              <FeatureItems items={['Noch am selben Tag', 'Festpreise']} />
             </div>
           </div>
         </div>
 
         {/* Zweite Row - Text links, Bild rechts */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-16 items-center max-w-7xl mx-auto">
-          {/* Text links mit Float Effect */}
           <div>
             <div ref={textRef3} className="text-3xl sm:text-4xl md:text-5xl font-bold mb-3 sm:mb-6 text-white">
               Zuverlässig und persönlich
@@ -168,12 +134,13 @@ export default function AboutSection() {
               <br /><br />
               Kein Callcenter, keine Warteschleifen: Sie erreichen uns direkt.
               Bei Rückfragen meldet sich der Techniker, der bei Ihnen war, persönlich zurück.
+              <FeatureItems items={['Persönlicher Ansprechpartner', 'Kein Callcenter']} />
             </div>
-            </div>
+          </div>
 
-          {/* Bild rechts mit Wobble Effekt */}
-          <WobbleImage src="/einrichtung_about.png" alt="Fernseher-Streaming" href="/ueber-uns" />
+          <WobbleImage src="/setup_background_seite.png" alt="Fernseher-Streaming" />
         </div>
+
       </div>
     </section>
   );

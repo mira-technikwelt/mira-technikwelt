@@ -2,7 +2,7 @@
 
 export default function Footer() {
   return (
-    <footer className="relative bg-slate-950 border-t border-slate-800/60">
+    <footer className="relative bg-[#0f172a] border-t border-slate-800/60">
       <div className="max-w-7xl mx-auto px-4 sm:px-8 py-12 sm:py-16">
         <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-8 sm:gap-12">
           
