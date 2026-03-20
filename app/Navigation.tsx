@@ -18,7 +18,7 @@ export default function Navigation() {
   return (
     <>
       {/* Navbar - bleibt gleich */}
-      <nav className="navbar fixed top-0 left-1/2 -translate-x-1/2 z-40 w-screen px-4 sm:px-6 overflow-x-hidden pt-2 sm:pt-3">
+      <nav className="navbar fixed top-0 left-1/2 -translate-x-1/2 z-40 w-screen px-4 sm:px-6 overflow-x-hidden pt-1 sm:pt-2 md:pt-3">
         <div className="bg-white/5 backdrop-blur-md border border-white/10 rounded-full px-4 sm:px-8 py-2 sm:py-3 shadow-lg shadow-black/20 max-w-full sm:max-w-6xl mx-auto overflow-x-hidden">
           <div className="flex items-center justify-between">
             
@@ -36,7 +36,7 @@ export default function Navigation() {
                 <img 
                   src="/logo-icon.png" 
                   alt="MIRA Technikwelt Logo - Technikberatung Backnang" 
-                  className="h-12 sm:h-16 w-auto cursor-pointer"
+                  className="h-8 sm:h-10 md:h-12 w-auto cursor-pointer"
                 />
               </Link>
             </div>

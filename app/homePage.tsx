@@ -66,7 +66,8 @@ useEffect(() => {
         />
 
         {/* ── HERO CONTENT ── */}
-        <div className="absolute inset-0 flex items-center hero-content-wrapper" style={{ paddingBottom: '160px', paddingTop: '80px' }}>
+        <div className="absolute inset-0 flex items-center hero-content-wrapper" style={{ paddingBottom: '160px', paddingTop: 'clamp(200px, 14vw, 120px)'
+}}>
           <div className="hero-text-block" style={{ animation: 'heroIn 0.75s ease both' }}>
 
             {/* Willkommen bei */}
