@@ -538,6 +538,10 @@ body {
         .feature-item + .feature-item { border-left: none; padding-left: 0; }
       }
 
+      @keyframes heroIn {
+        from { opacity: 0; transform: translateY(20px); }
+        to   { opacity: 1; transform: translateY(0); }
+      }
 .hero-fixed-bg {
   position: fixed;
   inset: 0;

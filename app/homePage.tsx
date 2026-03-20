@@ -138,18 +138,6 @@ useEffect(() => {
           </div>
         </div>
 
-        {/* ── SCROLL DOWN INDICATOR ── */}
-        <div
-          className="absolute bottom-16 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-3"
-        >
-          <div className="mouse-btn">
-            <span className="mouse-scroll"></span>
-          </div>
-          <span className="text-xs sm:text-sm font-medium text-white/60" style={{ letterSpacing: '0.1em' }}>
-            Scroll Down
-          </span>
-        </div>
-
       </div>
     </div>
 
