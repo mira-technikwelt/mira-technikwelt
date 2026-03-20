@@ -1,16 +1,13 @@
 "use client"
-import { useState, useEffect } from 'react';
-import Preloader from '@/components/Preloader';
+import { useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import Navigation from './Navigation';
 import AboutSection from '@/components/aboutSection';
 import ServicesSection from '@/components/servicesSection';
 import ReviewsSection from '@/components/ReviewsSection';
 import Footer from '@/components/Footer';
-import { Zap, Euro, User, Phone } from 'lucide-react';
 
 export default function HomePage() {
-  const [loading, setLoading] = useState(true);
   const router = useRouter();
 
   useEffect(() => {
@@ -34,7 +31,6 @@ useEffect(() => {
 
   return (
   <>
-    {loading && <Preloader onComplete={() => setLoading(false)} />}
     <Navigation />
 
     {/* ── HERO ── */}
@@ -68,7 +64,7 @@ useEffect(() => {
         {/* ── HERO CONTENT ── */}
         <div className="absolute inset-0 flex items-center hero-content-wrapper" style={{ paddingBottom: '160px', paddingTop: 'clamp(200px, 14vw, 120px)'
 }}>
-          <div className="hero-text-block" style={{ animation: 'heroIn 0.75s ease both' }}>
+          <div className="hero-text-block">
 
             {/* Willkommen bei */}
             <span style={{
@@ -92,7 +88,6 @@ useEffect(() => {
                 lineHeight: 1.0,
                 letterSpacing: '-0.02em',
                 marginBottom: '14px',
-                animation: 'heroIn 0.75s 0.15s ease both',
               }}
             >
               <span style={{ color: '#60a5fa' }}>MIRA </span>
@@ -105,7 +100,6 @@ useEffect(() => {
               fontWeight: 400,
               color: '#ffffff',
               marginBottom: '22px',
-              animation: 'heroIn 0.75s 0.20s ease both',
             }}>
               Technikberatung aus Backnang <br></br>für Rems‑Murr‑Kreis &amp; Region Stuttgart
             </p>
@@ -117,7 +111,6 @@ useEffect(() => {
               color: 'rgba(220, 220, 220, 0.95)',
               maxWidth: '360px',
               marginBottom: '36px',
-              animation: 'heroIn 0.75s 0.22s ease both',
             }}>
               Wir kommen zu Ihnen nach Hause und richten Fernseher, Computer, Router,
               Smart Home und vieles mehr ein.{' '}
@@ -127,7 +120,7 @@ useEffect(() => {
             </p>
             
             {/* Button */}
-            <div style={{ animation: 'heroIn 0.75s 0.30s ease both' }}>
+            <div>
               <button
                 className="hero-button button text-sm sm:text-base px-4 sm:px-6"
                 onClick={() => router.push('/leistungen')}
@@ -148,7 +141,6 @@ useEffect(() => {
         {/* ── SCROLL DOWN INDICATOR ── */}
         <div
           className="absolute bottom-16 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-3"
-          style={{ animation: 'heroIn 0.75s 0.50s ease both' }}
         >
           <div className="mouse-btn">
             <span className="mouse-scroll"></span>
