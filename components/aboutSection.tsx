@@ -101,7 +101,7 @@ export default function AboutSection() {
 
         {/* Erste Row - Bild links, Text rechts */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-16 items-center max-w-7xl mx-auto mb-16 sm:mb-32">
-          <WobbleImage src="/setup_background.png" alt="Raphael - Technikexperte" />
+          <WobbleImage src="/setup_background.webp" alt="Raphael - Technikexperte" />
 
           <div>
             <div ref={textRef1} className="text-3xl sm:text-4xl md:text-5xl font-bold mb-3 sm:mb-6 text-white">
@@ -138,7 +138,7 @@ export default function AboutSection() {
             </div>
           </div>
 
-          <WobbleImage src="/setup_background_seite.png" alt="Fernseher-Streaming" />
+          <WobbleImage src="/setup_background_seite.webp" alt="Fernseher-Streaming" />
         </div>
 
       </div>

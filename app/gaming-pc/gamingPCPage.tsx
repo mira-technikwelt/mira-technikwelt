@@ -1,8 +1,8 @@
 "use client";
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 import Navigation from '@/app/Navigation';
 import Footer from '@/components/Footer';
-import WobbleImage from '@/components/WobbleImage';
 
 export default function GamingPCPage() {
   return (
@@ -76,7 +76,7 @@ export default function GamingPCPage() {
                 style={{ willChange: "opacity, transform" }}
               >
                 <div className="relative overflow-hidden rounded-3xl aspect-[4/3]">
-                  <img src="/gamingpc_1.jpeg" alt="Gaming-PC Komponenten Auswahl - Grafikkarte, CPU, RAM in Backnang" className="object-cover w-full h-full" />
+                  <Image src="/gamingpc_4.webp" alt="Gaming-PC Komponenten Auswahl - Grafikkarte, CPU, RAM in Backnang" fill className="object-cover" loading="lazy" />
                 </div>
               </motion.div>
             </div>
@@ -93,7 +93,7 @@ export default function GamingPCPage() {
                 className="md:order-1 order-2"
               >
                 <div className="relative overflow-hidden rounded-3xl aspect-[4/3]">
-                  <img src="/gamingpc_2.jpg" alt="Professioneller Gaming-PC Aufbau mit Kabelmanagement" className="object-cover w-full h-full" />
+                  <Image src="/gamingpc_2.webp" alt="Professioneller Gaming-PC Aufbau mit Kabelmanagement" fill className="object-cover" loading="lazy" />
                 </div>
               </motion.div>
 
@@ -180,7 +180,7 @@ export default function GamingPCPage() {
                 style={{ willChange: "opacity, transform" }}
               >
                 <div className="relative overflow-hidden rounded-3xl aspect-[4/3]">
-                  <img src="/gamingpc_3.jpg" alt="Verschiedene Gaming-PC Builds - Budget bis High-End" className="object-cover w-full h-full" />
+                  <Image src="/gamingpc_3.webp" alt="Verschiedene Gaming-PC Builds - Budget bis High-End" fill className="object-cover" loading="lazy" />
                 </div>
               </motion.div>
             </div>
@@ -197,7 +197,7 @@ export default function GamingPCPage() {
                 className="md:order-1 order-2"
               >
                 <div className="relative overflow-hidden rounded-3xl aspect-[4/3]">
-                  <img src="/gamingpc_4.jpg" alt="Gaming-PC Setup komplett eingerichtet und spielbereit" className="object-cover w-full h-full" />
+                  <Image src="/gamingpc_4.webp" alt="Gaming-PC Setup komplett eingerichtet und spielbereit" fill className="object-cover" loading="lazy" />
                 </div>
               </motion.div>
 

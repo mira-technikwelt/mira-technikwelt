@@ -13,7 +13,7 @@ export const services: Service[] = [
     title: "Technikberatung vor Ort",
     category: "beratung",
     description: "Persönliche Beratung zu Computer, TV, WLAN und Smart Home & mehr",
-    image: "/beratung_3.png",
+    image: "/beratung_3.webp",
     icon: "💡",
     slug: "vor-ort-beratung-analyse",
     price: "ab 49€"
@@ -22,7 +22,7 @@ export const services: Service[] = [
     title: "Vertragsprüfung & Tarifcheck",
     category: "beratung",
     description: "Internet-, Handy-, Streaming- und Strom-Verträge optimieren",
-    image: "/vertrag_3.png",
+    image: "/vertrag_3.webp",
     icon: "📋",
     slug: "vertragspruefung-tarifvergleich",
     price: "ab 59€"
@@ -31,7 +31,7 @@ export const services: Service[] = [
     title: "Fernseher einrichten",
     category: "installation",
     description: "TV-Installation, Sender sortieren, Soundsystem einrichten - schnell & einfach",
-    image: "/tv.png",
+    image: "/tv.webp",
     icon: "📺",
     slug: "fernseher-einrichtung",
     price: "ab 59€"
@@ -40,7 +40,7 @@ export const services: Service[] = [
     title: "Computer & Laptop einrichten",
     category: "installation",
     description: "Windows installieren, Programme einrichten, Daten sicher übertragen",
-    image: "/laptop.png",
+    image: "/laptop.webp",
     icon: "💻",
     slug: "computer-laptop-einrichtung",
     price: "ab 79€"
@@ -49,7 +49,7 @@ export const services: Service[] = [
     title: "WLAN & Router einrichten",
     category: "installation",
     description: "Schnelles Internet, optimales WLAN, maximale Sicherheit für Zuhause",
-    image: "/router.png",
+    image: "/router.webp",
     icon: "📡",
     slug: "router-wlan-einrichtung",
     price: "ab 69€"
@@ -58,7 +58,7 @@ export const services: Service[] = [
     title: "Smart Home einrichten",
     category: "installation",
     description: "Sprachassistenten, Saugroboter, smarte Beleuchtung & mehr",
-    image: "/smarthome.png",
+    image: "/smarthome.webp",
     icon: "🏠",
     slug: "smart-home-einrichtung",
     price: "ab 59€"
@@ -67,7 +67,7 @@ export const services: Service[] = [
     title: "Smartphone & Tablet einrichten",
     category: "installation",
     description: "Apps, Kontakte, Fotos übertragen - iPhone, Samsung & Co.",
-    image: "/handy.png",
+    image: "/handy.webp",
     icon: "📱",
     slug: "smartphone-tablet-einrichtung",
     price: "ab 49€"
@@ -76,7 +76,7 @@ export const services: Service[] = [
     title: "Gaming-PC Kaufberatung",
     category: "gaming",
     description: "Die richtige Hardware für dein Budget - optimal konfiguriert",
-    image: "/gamingpc_2.png",
+    image: "/gamingpc_2.webp",
     icon: "🎮",
     slug: "gaming-pc-beratung",
     price: "ab 49€"
@@ -85,7 +85,7 @@ export const services: Service[] = [
     title: "Gaming-PC zusammenbauen",
     category: "gaming",
     description: "Professioneller Aufbau, Installation & Optimierung - spielbereit",
-    image: "/gamingpc.png",
+    image: "/gamingpc_4.webp",
     icon: "🎮",
     slug: "gaming-pc-aufbau-installation",
     price: "ab 119€"
@@ -94,7 +94,7 @@ export const services: Service[] = [
     title: "PC Fernwartung",
     category: "support",
     description: "Schnelle Online-Hilfe per Fernzugriff - nur für Bestandskunden",
-    image: "/online_support.png",
+    image: "/online_support.webp",
     icon: "🖥️",
     slug: "online-pc-support",
     price: "ab 29€"
@@ -103,7 +103,7 @@ export const services: Service[] = [
     title: "Gerätekauf-Service",
     category: "support",
     description: "Wir besorgen für Sie Geräte zum besten Preis - Sie sparen Zeit",
-    image: "/ankauf.png",
+    image: "/ankauf.webp",
     icon: "🛒",
     slug: "geraetekauf-im-auftrag",
     price: "ab 30€"
@@ -112,7 +112,7 @@ export const services: Service[] = [
     title: "Elektroschrott entsorgen",
     category: "support",
     description: "Fachgerechte Entsorgung von Altgeräten - umweltfreundlich & legal",
-    image: "/entsorgung.png",
+    image: "/entsorgung.webp",
     icon: "♻️",
     slug: "entsorgung-altgeraete",
     price: "ab 14,99€"
@@ -121,7 +121,7 @@ export const services: Service[] = [
     title: "Rundum-Sorglos-Paket",
     category: "komplettloesung",
     description: "Von Beratung bis Installation - alles in einem Prozess",
-    image: "/komplett.png",
+    image: "/komplett.webp",
     icon: "📦",
     slug: "komplettloesung-technikpaket",
     price: "ab 249€"

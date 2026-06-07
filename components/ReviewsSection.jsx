@@ -1,6 +1,7 @@
  "use client";
 import { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import Image from 'next/image';
 
 export default function ReviewsSection() {
   const [reviews, setReviews] = useState([]);
@@ -167,10 +168,13 @@ export default function ReviewsSection() {
                     <div className="absolute inset-0 bg-gradient-to-br from-blue-500 to-purple-600 rounded-3xl opacity-20 blur-2xl"></div>
                     {reviews[currentIndex]?.profilePhoto ? (
                       <>
-                        <img
+                        <Image
                           src={reviews[currentIndex].profilePhoto}
                           alt={reviews[currentIndex].name}
-                          className="relative w-full h-full rounded-3xl object-cover border-4 border-slate-700 shadow-2xl"
+                          fill
+                          className="relative rounded-3xl object-cover border-4 border-slate-700 shadow-2xl"
+                          loading="lazy"
+                          unoptimized
                           onError={(e) => {
                             e.target.style.display = 'none';
                             e.target.nextElementSibling.style.display = 'flex';
@@ -258,12 +262,15 @@ export default function ReviewsSection() {
                       }`}
                     >
                       {review.profilePhoto ? (
-                        <img
+                        <Image
                           src={review.profilePhoto}
                           alt={review.name}
-                          className={`w-full h-full rounded-full object-cover border-2 ${
+                          fill
+                          className={`rounded-full object-cover border-2 ${
                             idx === currentIndex ? 'border-blue-500' : 'border-slate-600'
                           }`}
+                          loading="lazy"
+                          unoptimized
                           onError={(e) => {
                             e.target.style.display = 'none';
                             e.target.nextElementSibling.style.display = 'flex';

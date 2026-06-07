@@ -41,7 +41,7 @@ function getLeistungData(slug: string): Leistung | null {
     subtitle: "Professionelle TV-Installation bei Ihnen vor Ort",
     price: "ab 59€",
     duration: "60 Min",
-    image: "/tv.png",
+    image: "/tv.webp",
     description: "Wir richten Ihren Fernseher professionell ein: Sender sortieren, Netflix & Co. installieren, Soundbar anschließen - in Backnang, Winnenden und Umgebung.",
     prices: {
       base: "59€",
@@ -91,7 +91,7 @@ function getLeistungData(slug: string): Leistung | null {
     subtitle: "Persönliche Beratung & Analyse zu Computer, TV, WLAN und Smart Home & mehr bei Ihnen Zuhause",
     price: "ab 49€",
     duration: "60 Min",
-    image: "/beratung_3.png",
+    image: "/beratung_3.webp",
     description: "Umfassende Analyse Ihrer Technik, praktische Lösungen und individuelle Empfehlungen - direkt bei Ihnen vor Ort in Backnang und Umgebung.",
     prices: {
       base: "49€",
@@ -141,7 +141,7 @@ function getLeistungData(slug: string): Leistung | null {
     subtitle: "Windows installieren, Programme einrichten, Daten sicher übertragen",
     price: "ab 79€",
     duration: "60 Min",
-    image: "/laptop.png",
+    image: "/laptop.webp",
     description: "Wir richten Ihren neuen PC oder Laptop komplett ein: Windows installieren, alle Programme einrichten, Daten vom alten Gerät übertragen - vor Ort in Backnang und Umgebung.",
     prices: {
       base: "79€",
@@ -191,7 +191,7 @@ function getLeistungData(slug: string): Leistung | null {
     subtitle: "iPhone, Samsung, Xiaomi & Co. - Apps, Kontakte & Fotos übertragen",
     price: "ab 49€",
     duration: "60 Min",
-    image: "/handy.png",
+    image: "/handy.webp",
     description: "Wir richten Ihr neues Smartphone oder Tablet komplett ein: Apps installieren, Kontakte und Fotos übertragen, E-Mail einrichten - vor Ort in Backnang und Umgebung.",
     prices: {
       base: "49€",
@@ -241,7 +241,7 @@ function getLeistungData(slug: string): Leistung | null {
     subtitle: "Schnelles Internet, optimale Reichweite, maximale Sicherheit",
     price: "ab 69€",
     duration: "60 Min",
-    image: "/router.png",
+    image: "/router.webp",
     description: "Wir richten Ihren Router und WLAN professionell ein: Optimale Platzierung, starkes Signal in allen Räumen, sichere Verschlüsselung - vor Ort in Backnang und Umgebung.",
     prices: {
       base: "69€",
@@ -291,7 +291,7 @@ function getLeistungData(slug: string): Leistung | null {
     subtitle: "Sprachassistenten, Saugroboter, smarte Beleuchtung - in Backnang und Umgebung",
     price: "ab 59€",
     duration: "60 Min",
-    image: "/smarthome.png",
+    image: "/smarthome.webp",
     description: "Wir richten Ihre Smart-Home-Geräte professionell ein: Sprachassistenten konfigurieren, Saugroboter verbinden, smarte Lampen einrichten - alles perfekt vernetzt.",
     prices: {
       base: "59€",
@@ -341,7 +341,7 @@ function getLeistungData(slug: string): Leistung | null {
     subtitle: "Von Beratung bis Installation - alles aus einer Hand in Backnang und Umgebung",
     price: "ab 249€",
     duration: "individuell",
-    image: "/komplett.png",
+    image: "/komplett.webp",
     description: "Wir kümmern uns um Ihre komplette Technik: Bedarfsanalyse, Vertragsvergleich, Gerätekauf, Installation und Einrichtung - alles aus einer Hand.",
     prices: {
       base: "ab 249€",
@@ -385,7 +385,7 @@ function getLeistungData(slug: string): Leistung | null {
     subtitle: "Schnelle Hilfe per Fernzugriff - in Backnang und Umgebung",
     price: "ab 29€",
     duration: "30 Min",
-    image: "/online_support.png",
+    image: "/online_support.webp",
     description: "Schnelle und unkomplizierte PC-Hilfe per Fernzugriff: Probleme lösen, Software installieren, Viren entfernen - ohne Anfahrt.",
     prices: {
       base: "29€",
@@ -433,7 +433,7 @@ if (slug === 'vertragspruefung-tarifvergleich') {
     subtitle: "Internet, Handy, Streaming - in Backnang und Umgebung",
     price: "ab 59€",
     duration: "60 Min",
-    image: "/vertrag_3.png",
+    image: "/vertrag_3.webp",
     description: "Wir prüfen Ihre Verträge und finden günstigere und auf Ihre Bedürfnisse abgestimmte Tarife: Internet, Telefon, Handy, Streaming, Strom & mehr.",
     prices: {
       base: "59€",
@@ -483,7 +483,7 @@ if (slug === 'gaming-pc-beratung') {
     subtitle: "Die richtige Hardware für dein Budget - optimal konfiguriert",
     price: "ab 49€",
     duration: "60 Min",
-    image: "/gamingpc_2.png",
+    image: "/gamingpc_2.webp",
     description: "Wir finden die perfekte Gaming-PC Konfiguration für dein Budget: Von günstigen Einstiegs-PCs bis hin zu High-End Systemen für 4K Gaming - alles optimal abgestimmt auf deine Spiele und Anforderungen.",
     prices: {
       base: "49€",
@@ -533,7 +533,7 @@ if (slug === 'gaming-pc-aufbau-installation') {
     subtitle: "Professioneller Aufbau, Windows installieren, spielbereit - in Backnang und Umgebung",
     price: "ab 119€",
     duration: "2-3 Std",
-    image: "/gamingpc.png",
+    image: "/gamingpc_4.webp",
     description: "Wir bauen ihren Gaming-PC exakt nach Wunsch: sauberer Aufbau, optimierter Airflow und ein stabil eingerichtetes Windows-System – damit Sie direkt loszocken können.",
     prices: {
       base: "ab 119€",
@@ -577,7 +577,7 @@ if (slug === 'geraetekauf-im-auftrag') {
     subtitle: "Wir besorgen Technik zum besten Preis für Sie - in Backnang und Umgebung",
     price: "ab 30€",
     duration: "individuell",
-    image: "/ankauf.png",
+    image: "/ankauf.webp",
     description: "Wir übernehmen die Beschaffung Ihrer Technik: Preisvergleich, Anbietersuche, Bestellung und Lieferung - Sie sparen Zeit und bekommen den besten Preis.",
     prices: {
       base: "ab 30€",
@@ -625,7 +625,7 @@ if (slug === 'entsorgung-altgeraete') {
     subtitle: "Umweltfreundliche Entsorgung von Altgeräten - in Backnang und Umgebung",
     price: "14,99€",
     duration: "bei Termin",
-    image: "/entsorgung.png",
+    image: "/entsorgung.webp",
     description: "Wir entsorgen Ihre Altgeräte fachgerecht und umweltfreundlich: Computer, Laptops, Drucker, Fernseher - Daten sicher löschen, gesetzeskonform recyceln.",
     prices: {
       base: "14,99€",

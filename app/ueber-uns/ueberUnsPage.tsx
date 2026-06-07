@@ -1,5 +1,6 @@
 "use client";
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 import Navigation from '@/app/Navigation';
 import Footer from '@/components/Footer';
 
@@ -40,7 +41,7 @@ export default function UeberUnsPage() {
                 style={{ willChange: "opacity, transform" }}
               >
                 <div className="relative overflow-hidden rounded-3xl aspect-square">
-                  <img src="/rapha.png" alt="Raphael - Gründer MIRA Technikwelt Backnang, Technik-Experte für Computer und Gaming-PCs" className="object-cover w-full h-full" />
+                  <Image src="/rapha.webp" alt="Raphael - Gründer MIRA Technikwelt Backnang, Technik-Experte für Computer und Gaming-PCs" fill className="object-cover" loading="lazy" />
                 </div>
               </motion.div>
 
@@ -121,7 +122,7 @@ export default function UeberUnsPage() {
                 style={{ willChange: "opacity, transform" }}
               >
                 <div className="relative overflow-hidden rounded-3xl aspect-square">
-                  <img src="/micka.png" alt="Micka - Mitgründer MIRA Technikwelt Backnang, Experte für Vor-Ort-Service und Kundenberatung" className="object-cover w-full h-full" />
+                  <Image src="/micka.webp" alt="Micka - Mitgründer MIRA Technikwelt Backnang, Experte für Vor-Ort-Service und Kundenberatung" fill className="object-cover" loading="lazy" />
                 </div>
               </motion.div>
             </div>

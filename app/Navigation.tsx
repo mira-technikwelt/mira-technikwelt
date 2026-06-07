@@ -1,5 +1,6 @@
 "use client";
 import { useState } from 'react';
+import Image from 'next/image';
 import Link from 'next/link';
 
 export default function Navigation() {
@@ -33,10 +34,13 @@ export default function Navigation() {
                   }
                 }}
               >
-                <img 
+                <Image 
                   src="/logo-icon.png" 
                   alt="MIRA Technikwelt Logo - Technikberatung Backnang" 
+                  width={64}
+                  height={64}
                   className="h-12 sm:h-16 w-auto cursor-pointer"
+                  priority
                 />
               </Link>
             </div>

@@ -41,7 +41,7 @@ useEffect(() => {
         <div
           className="absolute inset-0 bg-center"
           style={{ 
-            backgroundImage: "url('/hero_background.png')",
+            backgroundImage: "url('/hero_background.webp')",
   backgroundSize: 'cover',
   backgroundPosition: 'center top',
           }}

@@ -9,12 +9,12 @@ export default function Footer() {
           {/* Logo + Beschreibung */}
           <div className="col-span-2">
             <div className="flex items-center gap-2 sm:gap-3 mb-3 sm:mb-4">
-                <img src="/logo-icon.png" alt="MIRA Technikwelt Logo" className="h-10 sm:h-12" />
+                <img src="/logo-icon.png" alt="MIRA Technikwelt Logo" width={48} height={48} className="h-10 sm:h-12" loading="lazy" />
               <span className="text-lg sm:text-2xl font-bold text-white">MIRA Technikwelt</span>
             </div>
             <p className="text-xs sm:text-sm text-slate-400 mb-4 sm:mb-6 leading-relaxed">
               Ihre Technikexperten aus Backnang für Winnenden, Waiblingen,
-              Stuttgart und Umgebung. Wir richten Ihre Technik ein, erklären
+              Stuttgart und Umgebung. Wir richten Ihre Technik ein, erkläresn
               verständlich und sind persönlich für Sie da.
             </p>
             <div className="flex gap-2 sm:gap-4">

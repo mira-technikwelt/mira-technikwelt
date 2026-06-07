@@ -8,7 +8,7 @@ const SERVICES = [
   {
     title: "Fernseher Einrichtung",
     description: "Sender sortieren, Apps installieren, Geräte anschließen und mehr",
-    image: "/tv.png",
+    image: "/tv.webp",
     isImage: true,
     category: "installation",
     slug: "fernseher-einrichtung",
@@ -17,7 +17,7 @@ const SERVICES = [
   {
     title: "Computer & Laptop",
     description: "Windows einrichten, Programme installieren, Daten übertragen und mehr",
-    image: "/laptop.png",
+    image: "/laptop.webp",
     isImage: true,
     category: "installation",
     slug: "computer-laptop-einrichtung",
@@ -26,7 +26,7 @@ const SERVICES = [
   {
     title: "Router & WLAN",
     description: "Internet einrichten, WLAN optimieren, Sicherheit erhöhen und mehr",
-    image: "/router.png",
+    image: "/router.webp",
     isImage: true,
     category: "installation",
     slug: "router-wlan-einrichtung",
@@ -35,7 +35,7 @@ const SERVICES = [
   {
     title: "Smart-Home Geräte",
     description: "Drucker, Saugroboter, Alexa und mehr einrichten",
-    image: "/smarthome.png",
+    image: "/smarthome.webp",
     isImage: true,
     category: "installation",
     slug: "smart-home-einrichtung",
@@ -44,7 +44,7 @@ const SERVICES = [
   {
     title: "Smartphone & Tablet",
     description: "Apps einrichten, Kontakte übertragen, Cloud verbinden und mehr",
-    image: "/handy.png",
+    image: "/handy.webp",
     isImage: true,
     category: "installation",
     slug: "smartphone-tablet-einrichtung",
@@ -53,7 +53,7 @@ const SERVICES = [
   {
     title: "Gaming-PC Aufbau",
     description: "Hardware zusammenbauen, Treiber installieren, optimieren und mehr",
-    image: "/gamingpc.png",
+    image: "/gamingpc_4.webp",
     isImage: true,
     category: "gaming",
     slug: "gaming-pc-aufbau-installation",
