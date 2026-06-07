@@ -76,7 +76,7 @@ export default function GamingPCPage() {
                 style={{ willChange: "opacity, transform" }}
               >
                 <div className="relative overflow-hidden rounded-3xl aspect-[4/3]">
-                  <Image src="/gamingpc_4.webp" alt="Gaming-PC Komponenten Auswahl - Grafikkarte, CPU, RAM in Backnang" fill className="object-cover" loading="lazy" />
+                  <Image src="/gamingpc_1.webp" alt="Gaming-PC Komponenten Auswahl - Grafikkarte, CPU, RAM in Backnang" fill className="object-cover" loading="lazy" />
                 </div>
               </motion.div>
             </div>

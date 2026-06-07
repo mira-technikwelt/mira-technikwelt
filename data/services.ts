@@ -76,7 +76,7 @@ export const services: Service[] = [
     title: "Gaming-PC Kaufberatung",
     category: "gaming",
     description: "Die richtige Hardware für dein Budget - optimal konfiguriert",
-    image: "/gamingpc_2.webp",
+    image: "/gamingpc_kaufberatung.webp",
     icon: "🎮",
     slug: "gaming-pc-beratung",
     price: "ab 49€"
@@ -85,7 +85,7 @@ export const services: Service[] = [
     title: "Gaming-PC zusammenbauen",
     category: "gaming",
     description: "Professioneller Aufbau, Installation & Optimierung - spielbereit",
-    image: "/gamingpc_4.webp",
+    image: "/gamingpc_zusammenbau.webp",
     icon: "🎮",
     slug: "gaming-pc-aufbau-installation",
     price: "ab 119€"
