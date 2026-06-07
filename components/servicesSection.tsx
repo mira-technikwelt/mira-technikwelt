@@ -53,7 +53,7 @@ const SERVICES = [
   {
     title: "Gaming-PC Aufbau",
     description: "Hardware zusammenbauen, Treiber installieren, optimieren und mehr",
-    image: "/gamingpc_4.zusammenbau.webp",
+    image: "/gamingpc_zusammenbau.webp",
     isImage: true,
     category: "gaming",
     slug: "gaming-pc-aufbau-installation",
