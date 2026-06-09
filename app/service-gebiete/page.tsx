@@ -19,14 +19,14 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Service-Gebiete | MIRA Technikwelt Backnang",
     description: "Wir sind für Sie da: Von Backnang über Winnenden, Waiblingen bis Stuttgart - Technik-Service in der gesamten Region.",
-    url: "https://mira-technikwelt.de/service-gebiete",
+    url: "https://www.mira-technikwelt.de/service-gebiete",
     siteName: "MIRA Technikwelt",
     locale: "de_DE",
     type: "website",
   },
   
   alternates: {
-    canonical: "https://mira-technikwelt.de/service-gebiete"
+    canonical: "https://www.mira-technikwelt.de/service-gebiete"
   },
   
   robots: {

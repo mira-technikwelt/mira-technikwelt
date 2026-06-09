@@ -5,10 +5,10 @@ export function LocalBusinessSchema() {
     "name": "MIRA Technikwelt",
     "alternateName": "Mira-Technikwelt",
     "description": "Mobile Technikberatung und Einrichtung in Backnang und Umgebung. Wir richten Fernseher, Computer, Laptops, Router, Smart Home Geräte, Smartphones und Gaming-PCs ein. Persönliche Beratung vor Ort - wir kommen zu Ihnen nach Hause und erklären alles verständlich.",
-    "image": "https://mira-technikwelt.de/logo.png",
+    "image": "https://www.mira-technikwelt.de/logo.png",
     "telephone": "+4915563168737",
     "email": "info@mira-technikwelt.de",
-    "url": "https://mira-technikwelt.de",
+    "url": "https://www.mira-technikwelt.de",
     "priceRange": "€€",
     
     "address": {

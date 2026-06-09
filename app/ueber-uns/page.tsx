@@ -16,14 +16,14 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Über uns | MIRA Technikwelt Backnang",
     description: "Zwei Brüder mit einer Mission: Technik soll einfach sein. Lernen Sie Raphael und Micka kennen.",
-    url: "https://mira-technikwelt.de/ueber-uns",
+    url: "https://www.mira-technikwelt.de/ueber-uns",
     siteName: "MIRA Technikwelt",
     locale: "de_DE",
     type: "website",
   },
   
   alternates: {
-    canonical: "https://mira-technikwelt.de/ueber-uns"
+    canonical: "https://www.mira-technikwelt.de/ueber-uns"
   },
   
   robots: {
@@ -44,7 +44,7 @@ export default function Page() {
             "@type": "AboutPage",
             "name": "Über MIRA Technikwelt",
             "description": "Lernen Sie die Gründer von MIRA Technikwelt kennen - Raphael und Micka, zwei Brüder mit der Mission, Technik für jeden verständlich zu machen.",
-            "url": "https://mira-technikwelt.de/ueber-uns",
+            "url": "https://www.mira-technikwelt.de/ueber-uns",
             "mainEntity": {
               "@type": "Organization",
               "name": "MIRA Technikwelt",

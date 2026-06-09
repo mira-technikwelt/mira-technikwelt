@@ -16,14 +16,14 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Kontakt | MIRA Technikwelt Backnang",
     description: "Kontaktieren Sie uns: Telefon 0155 63168737, WhatsApp oder E-Mail - Wir sind für Sie da!",
-    url: "https://mira-technikwelt.de/kontakt",
+    url: "https://www.mira-technikwelt.de/kontakt",
     siteName: "MIRA Technikwelt",
     locale: "de_DE",
     type: "website",
   },
   
   alternates: {
-    canonical: "https://mira-technikwelt.de/kontakt"
+    canonical: "https://www.mira-technikwelt.de/kontakt"
   },
   
   robots: {

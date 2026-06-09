@@ -3,6 +3,7 @@ import "./globals.css";
 import { LocalBusinessSchema } from "@/app/schema";
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://www.mira-technikwelt.de"),
   title: "MIRA Technikwelt | Technikberatung aus Backnang",
   description: "Fernseher, Computer, Router, Drucker und mehr einrichten lassen. Wir kommen zu Ihnen!",
   icons: {

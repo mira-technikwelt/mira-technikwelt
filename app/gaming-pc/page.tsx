@@ -17,14 +17,14 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Gaming-PC Service Backnang | Beratung, Aufbau & Installation",
     description: "Wir bauen deinen Traum-Gaming-PC: Individuelle Konfiguration, professioneller Aufbau, sofort spielbereit - in Backnang und Umgebung.",
-    url: "https://mira-technikwelt.de/gaming-pc",
+    url: "https://www.mira-technikwelt.de/gaming-pc",
     siteName: "MIRA Technikwelt",
     locale: "de_DE",
     type: "website",
   },
   
   alternates: {
-    canonical: "https://mira-technikwelt.de/gaming-pc"
+    canonical: "https://www.mira-technikwelt.de/gaming-pc"
   },
   
   robots: {

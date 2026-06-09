@@ -10,14 +10,19 @@ const nextConfig: NextConfig = {
   typescript: {
     ignoreBuildErrors: true,
   },
-  /* config options here */
   async redirects() {
     return [
       {
-        source: '/(.*)',
-        destination: 'https://:host/:path*',
+        source: '/:path*',
+        has: [{ type: 'host', value: 'mira-technikwelt.de' }],
+        destination: 'https://www.mira-technikwelt.de/:path*',
         permanent: true,
+      },
+      {
+        source: '/:path*',
         has: [{ type: 'header', key: 'x-forwarded-proto', value: 'http' }],
+        destination: 'https://www.mira-technikwelt.de/:path*',
+        permanent: true,
       },
     ];
   },

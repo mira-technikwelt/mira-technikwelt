@@ -21,7 +21,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "MIRA Technikwelt - Ihre Technikexperten aus Backnang",
     description: "Wir richten Fernseher, Computer, Router & Smart Home ein. Persönlicher Service vor Ort in Backnang, Winnenden, Waiblingen & Stuttgart.",
-    url: "https://mira-technikwelt.de",
+    url: "https://www.mira-technikwelt.de",
     siteName: "MIRA Technikwelt",
     locale: "de_DE",
     type: "website",
@@ -34,7 +34,7 @@ export const metadata: Metadata = {
   },
   
   alternates: {
-    canonical: "https://mira-technikwelt.de"
+    canonical: "https://www.mira-technikwelt.de"
   },
   
   robots: {

@@ -19,14 +19,14 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Alle Technik-Services | MIRA Technikwelt Backnang",
     description: "Von Fernseher bis Gaming-PC – wir bieten umfassenden Technik-Service in Backnang und Umgebung. Persönlich, verständlich, zuverlässig.",
-    url: "https://mira-technikwelt.de/leistungen",
+    url: "https://www.mira-technikwelt.de/leistungen",
     siteName: "MIRA Technikwelt",
     locale: "de_DE",
     type: "website",
   },
   
   alternates: {
-    canonical: "https://mira-technikwelt.de/leistungen"
+    canonical: "https://www.mira-technikwelt.de/leistungen"
   },
   
   robots: {
