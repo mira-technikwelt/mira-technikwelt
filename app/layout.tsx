@@ -5,6 +5,15 @@ import { LocalBusinessSchema } from "@/app/schema";
 export const metadata: Metadata = {
   title: "MIRA Technikwelt | Technikberatung aus Backnang",
   description: "Fernseher, Computer, Router, Drucker und mehr einrichten lassen. Wir kommen zu Ihnen!",
+  icons: {
+    icon: [
+      { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
+      { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
+      { url: "/favicon.ico", sizes: "any", type: "image/x-icon" },
+    ],
+    shortcut: "/favicon.ico",
+    apple: "/logo-icon.png",
+  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
@@ -12,8 +21,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="de" className="dark scroll-smooth">
       <head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes, viewport-fit=cover" />
-        <LocalBusinessSchema /> 
-        <link rel="icon" href="/favicon.ico" />
+        <LocalBusinessSchema />
+        <link rel="icon" href="/favicon-16x16.png" sizes="16x16" type="image/png" />
+        <link rel="icon" href="/favicon-32x32.png" sizes="32x32" type="image/png" />
+        <link rel="shortcut icon" href="/favicon.ico" />
+        <link rel="icon" href="/favicon.ico" sizes="any" type="image/x-icon" />
         <link rel="apple-touch-icon" href="/logo-icon.png" />
         <meta name="theme-color" content="#3b82f6" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
